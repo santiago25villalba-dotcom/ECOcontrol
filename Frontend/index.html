@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoControl | Consultora ambiental</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/sesion.js"></script>
+  <script>exigirSesion();</script> <!-- sin sesión, vuelve a login.html -->
+</head>
+<body>
+
+<!-- ===== CABECERA Y MENÚ ===== -->
+<header class="cabecera">
+  <div class="contenedor barra">
+    <a href="#" class="logo" data-ir="inicio"><svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 64" role="img" aria-label="EcoControl" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTowODg4ZjBlOC05YjkxLTQyMDUtYmRkNC01NjJmZGFlYWU3YWEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaCVdEUxxQCXXyAN3LAg3AC4AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo4MzM5OWUxMy1iNTdlLTQyNGUtYjQ5NS1iOWI3ZDY3YTUxODNscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNolY8NDH753LiQcqZqkmpWYQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggFfaL2aXdEgjqpxtEPulvu4I0RxwCzwBjt8EHwBC17BakZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaDDzDngWeN4kuE2m7HUjeYwAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCARvkKXx9KBJ2MEetnOTZ5bSbT63xCbgLrlIdax5MylhmRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBifZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjA4ODhmMGU4LTliOTEtNDIwNS1iZGQ0LTU2MmZkYWVhZTdhYS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmJhMjE1YjAwLWI5MzUtNDM2MC1hNDQ0LTYyOTFmMjU4NjBlNHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCAV9ovZpd0SCOqnG0Q+6W+7gjRHHALPAGO3wQfAELXsFqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggtXCvVyT9d4y9sI9Wg9VQ8MdwL8bNYLYK32qvi5R+GSeiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggWYValDL+xeruVKTbvgP6MNDDsDW2ONLIWRTaX4EOpzt0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQD4K+0td+WN5rOKWJfQaA3dtMVD9bGMB9k4IIi4CMW4WX3MAaFteg0pmusAb58kJC2QYQg6lYIHnTBLZa1VJyAQ=</c2pa:manifest></metadata>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#E8F5E9" stroke-width="7"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#43A047" stroke-width="7" stroke-linecap="round" stroke-dasharray="122 41.4" transform="rotate(-90 32 32)"/>
+  <path d="M32 46C20 40 20 26 34 18c12 6 12 20-2 28z" fill="#1B5E20"/>
+  <path d="M32 46l1-20" stroke="#E8F5E9" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <text x="70" y="43" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="34" fill="#1B5E20">Eco<tspan fill="#43A047">Control</tspan></text>
+</svg></a>
+    <button class="menu-boton" id="menuBoton" aria-label="Abrir menú">☰</button>
+    <nav class="menu" id="menu">
+      <!-- Todo el menú se oculta hasta que la persona inicia sesión -->
+      <span id="menuApp" hidden>
+        <a href="#" data-ir="inicio">Inicio</a>
+        <a href="#" data-ir="servicios">Servicios</a>
+        <a href="#" data-ir="diagnostico">Diagnóstico</a>
+        <a href="#" data-ir="proyecto">Proyecto</a>
+        <a href="#" data-ir="contacto">Contacto</a>
+        <a href="#" data-ir="panel">Mi panel</a>
+        <a href="#" id="botonSalir" class="boton boton-borde">Salir</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== INICIO ===== -->
+<section class="pantalla activa" id="inicio">
+  <div class="banda">
+    <div class="contenedor hero">
+      <div>
+        <h1>Medí tu impacto. Mejorá tu entorno</h1>
+        <p>EcoControl es una consultora de eficiencia y sustentabilidad ambiental. Ayudamos a hogares y pequeños negocios a conocer cuánto cuidan el ambiente y qué pueden mejorar.</p>
+        <div class="botones">
+          <a href="#" class="boton" data-ir="diagnostico">Realizar diagnóstico</a>
+          <a href="#" class="boton boton-borde" data-ir="servicios">Conocer nuestros servicios</a>
+        </div>
+      </div>
+      <svg class="hero-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Casa con paneles solares, molino de viento y árboles" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpiZmEwNTU3ZS05Njk0LTQ5NjUtOGUzNC1kZDA0ODI1MTI5ZTMAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaN+5kwWLUMUHzeyXaI9VyGgAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDozNzZlNzczYS0xZTIzLTRjM2ItOTIyOC04NGQ4YTYxMjIxNTlscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoBqQCEa376TRTUW8FjYuxIAAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg9rGpTuvv6QNYaXPBMAhqA7md/eadeD2OngCMX1ndibukZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaHdIBOTx2B+b9HOsGjP3twsAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCAw15LM6JfD41XwQlCjp6DYKsEekbsrWisLfhyxUaw9emRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjLZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmJmYTA1NTdlLTk2OTQtNDk2NS04ZTM0LWRkMDQ4MjUxMjllMy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjA1ZGJjODQxLWZjOGUtNGRhOC05NTY1LTg3ODNhNWNkNmI4MHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCD2salO6+/pA1hpc8EwCGoDuZ395p14PY6eAIxfWd2Ju6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggZ0PlG9X3etfysfAufWEpnaXCBxArf9+TtYuBLPqqiI6iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggHgh+76aEwSzeTWzVKVBq0NoM93IUwVEzFvxrSNKWcVB0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQH9+Nd/JAJbk+CbrWBnx4h/OAtAtIo9ewiQYRhhJWiEoRxjvdA1txxUbaClWmVThmn1JqGv5HZOQ3+bM+w2/7mg=</c2pa:manifest></metadata>
+  <rect width="480" height="360" fill="#E8F3ED"/>
+  <circle cx="380" cy="80" r="44" fill="#CDE9DB"/><circle cx="380" cy="80" r="30" fill="#FFFFFF"/>
+  <ellipse cx="170" cy="70" rx="36" ry="12" fill="#FFFFFF"/><ellipse cx="195" cy="60" rx="24" ry="11" fill="#FFFFFF"/>
+  <path d="M0 250Q120 170 240 230T480 210V360H0Z" fill="#A8DBC6"/>
+  <rect x="87" y="120" width="6" height="125" fill="#123D2B"/>
+  <path d="M90 118V68M90 118l-43 25M90 118l43 25" stroke="#123D2B" stroke-width="5" stroke-linecap="round"/><circle cx="90" cy="118" r="6" fill="#15966A"/>
+  <path d="M0 290Q140 220 280 280T480 260V360H0Z" fill="#3FB48C"/>
+  <rect x="200" y="215" width="110" height="70" fill="#FFFFFF"/>
+  <path d="M190 218 255 170 320 218Z" fill="#123D2B"/>
+  <rect x="232" y="192" width="46" height="18" fill="#E8F3ED" stroke="#15966A" stroke-width="2"/><path d="M247 192v18M263 192v18M232 201h46" stroke="#15966A" stroke-width="1.5"/>
+  <rect x="240" y="250" width="30" height="35" fill="#15966A"/><rect x="211" y="232" width="22" height="22" fill="#CDE9DB"/><rect x="278" y="232" width="22" height="22" fill="#CDE9DB"/>
+  <path d="M0 330Q150 280 300 320T480 300V360H0Z" fill="#123D2B"/>
+  <rect x="380" y="270" width="8" height="38" fill="#26332C"/>
+  <circle cx="384" cy="256" r="28" fill="#0E7556"/><circle cx="366" cy="272" r="18" fill="#15966A"/><circle cx="403" cy="270" r="18" fill="#15966A"/>
+  <rect x="428" y="285" width="6" height="26" fill="#26332C"/><circle cx="431" cy="276" r="18" fill="#0E7556"/>
+</svg>
+    </div>
+  </div>
+  <div class="contenedor">
+    <div class="tarjeta" style="margin-top:40px">
+      <h2>Quiénes somos</h2>
+      <p>Somos un equipo que cree que los pequeños cambios diarios generan grandes resultados. Con un diagnóstico simple te mostramos tu Índice Eco y un plan claro para mejorarlo.</p>
+      <div class="rejilla">
+        <div><div class="icono"><img src="img/icono-mision.svg" alt=""></div><h3>Nuestra misión</h3><p>Hacer que cuidar el ambiente sea fácil de medir y de lograr.</p></div>
+        <div><div class="icono"><img src="img/icono-diagnostico.svg" alt=""></div><h3>Diagnóstico claro</h3><p>Pocas preguntas, un resultado de 0 a 100 y recomendaciones útiles.</p></div>
+        <div><div class="icono"><img src="img/icono-equipo.svg" alt=""></div><h3>Acompañamiento</h3><p>Te asesoramos para que sostengas tus mejoras en el tiempo.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="contenedor bloque">
+    <h2>Cómo funciona</h2>
+    <div class="rejilla">
+      <div class="paso"><span class="numero">1</span><h3>Respondé el diagnóstico</h3><p>Elegí si es para tu hogar o tu negocio y contestá pocas preguntas.</p></div>
+      <div class="paso"><span class="numero">2</span><h3>Conocé tu Índice Eco</h3><p>Recibí un puntaje de 0 a 100 con el detalle de energía, agua y residuos.</p></div>
+      <div class="paso"><span class="numero">3</span><h3>Mejorá tus hábitos</h3><p>Seguí las recomendaciones y guardá tu historial en tu panel.</p></div>
+    </div>
+  </div>
+  <div class="contenedor bloque">
+    <h2>Nuestros servicios</h2>
+    <div class="rejilla">
+      <article class="tarjeta"><div class="icono"><img src="img/icono-energia.svg" alt=""></div><h3>Eficiencia energética</h3><p>Analizamos tu consumo eléctrico y te proponemos cómo gastar menos.</p></article>
+      <article class="tarjeta"><div class="icono"><img src="img/icono-agua.svg" alt=""></div><h3>Uso responsable del agua</h3><p>Detectamos pérdidas y malos hábitos para cuidar cada litro.</p></article>
+      <article class="tarjeta"><div class="icono"><img src="img/icono-residuos.svg" alt=""></div><h3>Gestión de residuos</h3><p>Te enseñamos a separar, reutilizar y reciclar.</p></article>
+      <article class="tarjeta"><div class="icono"><img src="img/icono-plan.svg" alt=""></div><h3>Planes de mejora ambiental</h3><p>Armamos un plan paso a paso según tu Índice Eco.</p></article>
+    </div>
+    <p style="margin-top:24px"><a href="#" class="boton boton-borde" data-ir="servicios">Ver todos los servicios</a></p>
+  </div>
+  <div class="contenedor">
+    <div class="cta">
+      <div><h2>¿Listo para medir tu impacto?</h2><p>Hacé el diagnóstico y conocé tu Índice Eco en pocos minutos.</p></div>
+      <a href="#" class="boton" data-ir="diagnostico">Realizar diagnóstico</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICIOS ===== -->
+<section class="pantalla" id="servicios">
+  <div class="contenedor">
+    <h2>Nuestros servicios</h2>
+    <p class="gris">Soluciones para hogares y pequeños negocios.</p>
+    <div class="rejilla">
+      <article class="tarjeta"><div class="icono"><img src="img/icono-energia.svg" alt=""></div><h3>Eficiencia energética</h3><p>Analizamos tu consumo eléctrico y te proponemos formas de gastar menos energía.</p></article>
+      <article class="tarjeta"><div class="icono"><img src="img/icono-agua.svg" alt=""></div><h3>Uso responsable del agua</h3><p>Detectamos pérdidas y malos hábitos para cuidar cada litro.</p></article>
+      <article class="tarjeta"><div class="icono"><img src="img/icono-residuos.svg" alt=""></div><h3>Gestión de residuos</h3><p>Te enseñamos a separar, reutilizar y reciclar de forma práctica.</p></article>
+      <article class="tarjeta"><div class="icono"><img src="img/icono-plan.svg" alt=""></div><h3>Planes de mejora ambiental</h3><p>Armamos un plan paso a paso según tu Índice Eco.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIAGNÓSTICO (el contenido de cada paso lo dibuja app.js) ===== -->
+<section class="pantalla" id="diagnostico">
+  <div class="contenedor">
+    <div class="tarjeta formulario-ancho">
+      <h2>Diagnóstico ambiental</h2>
+      <div class="progreso"><div id="progresoBarra"></div></div>
+      <p class="gris" id="pasoTexto"></p>
+      <div id="diagnosticoContenido"></div>
+      <p class="mensaje" id="diagnosticoError"></p>
+      <div class="botones-fila">
+        <button type="button" class="boton boton-borde" id="botonVolver">← Volver</button>
+        <button type="button" class="boton" id="botonSiguiente">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTADO: ÍNDICE ECO ===== -->
+<section class="pantalla" id="resultado">
+  <div class="contenedor formulario-ancho">
+    <div class="tarjeta">
+      <h2>Tu Índice Eco</h2>
+      <div class="resultado-cabecera">
+        <svg class="medidor" viewBox="0 0 120 120" role="img" aria-label="Medidor del Índice Eco">
+          <circle class="fondo" cx="60" cy="60" r="54"/>
+          <circle class="arco" id="medidorArco" cx="60" cy="60" r="54" transform="rotate(-90 60 60)"/>
+          <text id="medidorNumero" x="60" y="62" text-anchor="middle">0</text>
+          <text class="sub" x="60" y="80" text-anchor="middle">de 100</text>
+        </svg>
+        <div>
+          <p>Nivel: <span class="nivel" id="resultadoNivel"></span></p>
+          <div id="resultadoAreas"></div>
+        </div>
+      </div>
+    </div>
+    <div class="tarjeta" style="margin-top:20px">
+      <h3>Recomendaciones para vos</h3>
+      <ul class="lista-reco" id="resultadoRecomendaciones"></ul>
+      <p class="mensaje" id="resultadoAviso"></p>
+      <div class="botones-fila">
+        <a href="#" class="boton boton-borde" data-ir="diagnostico">Repetir diagnóstico</a>
+        <a href="#" class="boton" data-ir="panel">Ir a mi panel</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PANEL DEL USUARIO ===== -->
+<section class="pantalla" id="panel">
+  <div class="contenedor">
+    <h2 id="panelBienvenida"></h2>
+    <div class="botones-fila" style="justify-content:flex-start;flex-wrap:wrap">
+      <a href="#" class="boton" data-ir="diagnostico">Nuevo diagnóstico</a>
+      <a href="#" class="boton boton-borde" id="botonAsesoramiento">Solicitar asesoramiento</a>
+    </div>
+    <div class="tarjeta" id="panelVacio" style="margin-top:20px">
+      <h3>Todavía no hiciste ningún diagnóstico</h3>
+      <p>Realizá tu primer diagnóstico para ver tu Índice Eco acá.</p>
+    </div>
+    <div id="panelDatos">
+      <div class="dos-columnas" style="margin-top:20px">
+        <div class="tarjeta">
+          <h3>Último Índice Eco</h3>
+          <p class="numero-grande" id="panelIndice"></p>
+          <span class="nivel" id="panelNivel"></span>
+        </div>
+        <div class="tarjeta">
+          <h3>Recomendaciones</h3>
+          <ul class="lista-reco" id="panelRecomendaciones"></ul>
+        </div>
+      </div>
+      <div class="tarjeta" style="margin-top:20px">
+        <h3>Historial de diagnósticos</h3>
+        <div style="overflow-x:auto">
+          <table><thead><tr><th>Fecha</th><th>Tipo</th><th>Índice</th><th>Nivel</th></tr></thead><tbody id="panelHistorial"></tbody></table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROYECTO (10 secciones con pestañas) ===== -->
+<section class="pantalla" id="proyecto">
+  <div class="contenedor">
+    <h2>Documentación del proyecto</h2>
+    <p class="gris">Todas las secciones del proyecto en un solo lugar.</p>
+    <div class="proyecto">
+      <nav class="pestanas" aria-label="Secciones del proyecto"><button type="button" class="pestana activa" data-tab="presentacion"><span>01</span>Presentación de la consultora</button><button type="button" class="pestana" data-tab="cliente"><span>02</span>Proyecto al cliente</button><button type="button" class="pestana" data-tab="diagramas"><span>03</span>Diagramas</button><button type="button" class="pestana" data-tab="codigo"><span>04</span>Código</button><button type="button" class="pestana" data-tab="capturas"><span>05</span>Capturas de pantalla</button><button type="button" class="pestana" data-tab="manual"><span>06</span>Manual de usuario</button><button type="button" class="pestana" data-tab="costos"><span>07</span>Costos</button><button type="button" class="pestana" data-tab="cultura"><span>08</span>Cultura organizacional</button><button type="button" class="pestana" data-tab="seguridad"><span>09</span>Seguridad e higiene</button><button type="button" class="pestana" data-tab="ciclo"><span>10</span>Ciclo de trabajo</button></nav>
+      <div>
+        <article class="tarjeta panel-proyecto activo" id="proy-presentacion">
+          <h3>Presentación de la consultora</h3>
+          <p class="gris">Quiénes somos, misión y servicios de la consultora.</p>
+          <!-- Pegá acá el contenido de "Presentación de la consultora" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-cliente">
+          <h3>Proyecto al cliente</h3>
+          <p class="gris">Descripción del proyecto presentado al cliente.</p>
+          <!-- Pegá acá el contenido de "Proyecto al cliente" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-diagramas">
+          <h3>Diagramas</h3>
+          <p class="gris">Diagramas del sistema y de su funcionamiento.</p>
+          <!-- Pegá acá el contenido de "Diagramas" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-codigo">
+          <h3>Código</h3>
+          <p class="gris">Fragmentos y explicación del código desarrollado.</p>
+          <!-- Pegá acá el contenido de "Código" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-capturas">
+          <h3>Capturas de pantalla</h3>
+          <p class="gris">Imágenes de las pantallas de la aplicación.</p>
+          <!-- Pegá acá el contenido de "Capturas de pantalla" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-manual">
+          <h3>Manual de usuario</h3>
+          <p class="gris">Guía paso a paso para usar la aplicación.</p>
+          <!-- Pegá acá el contenido de "Manual de usuario" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-costos">
+          <h3>Costos</h3>
+          <p class="gris">Detalle de costos del proyecto.</p>
+          <!-- Pegá acá el contenido de "Costos" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-cultura">
+          <h3>Cultura organizacional</h3>
+          <p class="gris">Valores, organización y forma de trabajo del equipo.</p>
+          <!-- Pegá acá el contenido de "Cultura organizacional" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-seguridad">
+          <h3>Seguridad e higiene</h3>
+          <p class="gris">Normas de seguridad e higiene aplicadas.</p>
+          <!-- Pegá acá el contenido de "Seguridad e higiene" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+        <article class="tarjeta panel-proyecto" id="proy-ciclo">
+          <h3>Ciclo de trabajo</h3>
+          <p class="gris">Etapas y organización del trabajo del proyecto.</p>
+          <!-- Pegá acá el contenido de "Ciclo de trabajo" -->
+          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section class="pantalla" id="contacto">
+  <div class="contenedor"><div class="tarjeta formulario-ancho">
+    <h2>Contacto</h2>
+    <form id="formContacto" data-php="php/contacto.php" novalidate>
+      <label class="campo">Nombre<input type="text" name="nombre" id="contactoNombre" required></label>
+      <label class="campo">Correo electrónico<input type="email" name="email" id="contactoEmail" required></label>
+      <label class="campo">Asunto<input type="text" name="asunto" id="contactoAsunto" required></label>
+      <label class="campo">Mensaje<textarea name="mensaje" id="contactoMensaje" rows="5" required></textarea></label>
+      <button class="boton" type="submit">Enviar mensaje</button>
+      <p class="mensaje" id="contactoMensajeEstado"></p>
+    </form>
+  </div></div>
+</section>
+
+</main>
+
+<footer class="pie"><svg class="logo-pie" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 64" role="img" aria-label="EcoControl" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpkMmQxZjBjNC1jMzFkLTQwYTUtOWVlMS0zZWM5NTcwYzhkNjUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaKOgooJlboi79vXH7rCY+7QAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo2ZTYyM2IyMC1hNTIzLTRjODgtYTc4My0zNjE3ZGE2NWMzOThscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoUKB50afMl2lx+l2UKjMG8QAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggbvSfV2b4aX4S45WiQye3mObUoYg+kst8OIr7maZfKKKkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaJ5CYLubN/SzlwSjPslg/N0AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCB330ONjR4hrg1DDk/J3nBh08qaony2bSBD5dsqQU9ztGRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBifZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmQyZDFmMGM0LWMzMWQtNDBhNS05ZWUxLTNlYzk1NzBjOGQ2NS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjQxMzhlOTY0LTg4YWQtNGMwZi05N2Q2LWFjZTM0ZGJhZDQ4ZXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBu9J9XZvhpfhLjlaJDJ7eY5tShiD6Sy3w4ivuZpl8ooqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggiBii63iwj1/bHg3SgqC1qiccMK9fUn6yFGueDxJM2/uiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggoz1TnxR7TU5mq+9uvL5FgAO4q0dsI9LEcpoPhB3Dg8t0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQHxgh1PuJVkz9u2LMsJ808WFJQH3chDnpDxewZ9Wi4EBf8zvDlm4tTcxzEDpQucZpFNcHA3kSKVatm6uZunqIjk=</c2pa:manifest></metadata>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#2E7D32" stroke-width="7"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#81C784" stroke-width="7" stroke-linecap="round" stroke-dasharray="122 41.4" transform="rotate(-90 32 32)"/>
+  <path d="M32 46C20 40 20 26 34 18c12 6 12 20-2 28z" fill="#FFFFFF"/>
+  <path d="M32 46l1-20" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <text x="70" y="43" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="34" fill="#FFFFFF">Eco<tspan fill="#81C784">Control</tspan></text>
+</svg><p>Proyecto de Santiago Villalba</p></footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
