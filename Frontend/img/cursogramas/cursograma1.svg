@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 895" width="1100" height="895" font-family="Arial, Helvetica, sans-serif" fill="#1d1d1d">
+<defs><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d1d1d"/></marker><style>.s{fill:#fff;stroke:#1d1d1d;stroke-width:1.4}.f{fill:#fff;stroke:#1d1d1d;stroke-width:1.2}.l{fill:none;stroke:#1d1d1d;stroke-width:1.2}.lp{fill:none;stroke:#1d1d1d;stroke-width:1.2;stroke-dasharray:5 4}.b{fill:none;stroke:#1d1d1d;stroke-width:1}</style></defs>
+<rect width="1100" height="895" fill="#fff"/>
+<text x="14" y="28" font-size="16" font-weight="bold">Cursograma 1 – Diagnóstico ambiental de un cliente nuevo</text>
+<text x="1086" y="28" font-size="11" text-anchor="end">EcoControl · Consultora ambiental</text>
+<rect x="0.5" y="42" width="1099" height="852.5" class="b"/>
+<line x1="0" y1="72" x2="1100" y2="72" class="b"/>
+<text x="120.0" y="61" font-size="11.5" font-weight="bold" text-anchor="middle">Cliente</text>
+<line x1="240" y1="42" x2="240" y2="895" class="b"/>
+<text x="360.0" y="61" font-size="11.5" font-weight="bold" text-anchor="middle">Sistema EcoControl</text>
+<line x1="480" y1="42" x2="480" y2="895" class="b"/>
+<text x="620.0" y="61" font-size="11.5" font-weight="bold" text-anchor="middle">Titular (Consultor)</text>
+<line x1="760" y1="42" x2="760" y2="895" class="b"/>
+<text x="772" y="61" font-size="11.5" font-weight="bold">Referencias</text>
+<path d="M92 100L102 88H138L148 100L138 112H102Z" class="s"/>
+<path d="M120 112 L120 128" class="l" marker-end="url(#flecha)"/>
+<rect x="98.0" y="128" width="44" height="28" class="f"/>
+<text x="117.0" y="145" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">FD</text>
+<text x="139.0" y="154" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M142.0 142.0 L360 142.0 L360 180" class="l" marker-end="url(#flecha)"/>
+<rect x="338.0" y="180" width="44" height="28" class="f"/>
+<text x="357.0" y="197" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">FD</text>
+<text x="379.0" y="206" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M360.0 208 L360 231" class="l" marker-end="url(#flecha)"/>
+<rect x="346" y="231" width="28" height="28" class="s"/>
+<text x="360" y="249" font-size="11" font-weight="bold" font-style="normal" text-anchor="middle">1</text>
+<path d="M360 259 L360 280" class="l" marker-end="url(#flecha)"/>
+<path d="M360 280L392 300L360 320L328 300Z" class="s"/>
+<text x="360" y="303" font-size="8" font-weight="normal" font-style="normal" text-anchor="middle">¿Completo?</text>
+<text x="318" y="294" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">NO</text>
+<path d="M328 300 L120 300 L120 330" class="l" marker-end="url(#flecha)"/>
+<rect x="98.0" y="330" width="44" height="28" class="f"/>
+<text x="117.0" y="347" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">FD</text>
+<text x="139.0" y="356" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M120.0 358 L120 378" class="l" marker-end="url(#flecha)"/>
+<path d="M92 390L102 378H138L148 390L138 402H102Z" class="s"/>
+<text x="372" y="332" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">SI</text>
+<path d="M360 320 L360 346" class="l" marker-end="url(#flecha)"/>
+<circle cx="360" cy="360" r="14" class="s"/>
+<text x="360" y="364" font-size="11" font-weight="bold" font-style="normal" text-anchor="middle">2</text>
+<path d="M290 346L305 372H275Z" class="s"/>
+<text x="290" y="368" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">A</text>
+<path d="M305 360 L346 360" class="lp" marker-end="url(#flecha)"/>
+<path d="M360 374 L360 400" class="l" marker-end="url(#flecha)"/>
+<rect x="350.0" y="420" width="44" height="28" class="f"/>
+<text x="354.0" y="446" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">IR</text>
+<text x="391.0" y="446" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="344.0" y="410" width="44" height="28" class="f"/>
+<text x="348.0" y="436" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">IR</text>
+<text x="385.0" y="436" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<rect x="338.0" y="400" width="44" height="28" class="f"/>
+<text x="357.0" y="417" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">FD</text>
+<text x="379.0" y="426" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M344.0 433.0 L120 433.0 L120 460" class="l" marker-end="url(#flecha)"/>
+<rect x="98.0" y="460" width="44" height="28" class="f"/>
+<text x="117.0" y="477" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">IR</text>
+<text x="139.0" y="486" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M120.0 488 L120 508" class="l" marker-end="url(#flecha)"/>
+<path d="M92 520L102 508H138L148 520L138 532H102Z" class="s"/>
+<path d="M372.0 448 L372.0 466 L614 466 L614 490" class="l" marker-end="url(#flecha)"/>
+<rect x="598.0" y="500" width="44" height="28" class="f"/>
+<text x="602.0" y="526" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">IR</text>
+<text x="639.0" y="526" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="592.0" y="490" width="44" height="28" class="f"/>
+<text x="611.0" y="507" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">FD</text>
+<text x="633.0" y="516" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M620.0 528 L620 560" class="l" marker-end="url(#flecha)"/>
+<rect x="605" y="560" width="30" height="30" class="s"/>
+<circle cx="620" cy="575" r="11" class="s"/>
+<text x="620" y="579" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">3</text>
+<path d="M550 561L565 587H535Z" class="s"/>
+<text x="550" y="583" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">B</text>
+<path d="M565 575 L605 575" class="lp" marker-end="url(#flecha)"/>
+<path d="M620 590 L620 610" class="l" marker-end="url(#flecha)"/>
+<path d="M620 610L652 630L620 650L588 630Z" class="s"/>
+<text x="620" y="633" font-size="8" font-weight="normal" font-style="normal" text-anchor="middle">¿Índice &lt; 70?</text>
+<text x="578" y="624" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">NO</text>
+<path d="M588 630 L540 630 L540 660" class="l" marker-end="url(#flecha)"/>
+<rect x="518.0" y="665" width="44" height="28" class="f"/>
+<text x="522.0" y="691" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">IR</text>
+<text x="559.0" y="691" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="512.0" y="655" width="44" height="28" class="f"/>
+<text x="531.0" y="672" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">FD</text>
+<text x="553.0" y="681" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M540.0 693 L540.0 706" class="l" marker-end="url(#flecha)"/>
+<path d="M540.0 706L555.0 732H525.0Z" class="s"/>
+<text x="540.0" y="728" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">C</text>
+<text x="662" y="624" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">SI</text>
+<path d="M652 630 L695 630 L695 671" class="l" marker-end="url(#flecha)"/>
+<circle cx="695" cy="685" r="14" class="s"/>
+<text x="695" y="689" font-size="11" font-weight="bold" font-style="normal" text-anchor="middle">4</text>
+<path d="M695 699 L695 722" class="l" marker-end="url(#flecha)"/>
+<rect x="691.0" y="752" width="44" height="28" class="f"/>
+<text x="695.0" y="778" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">PA</text>
+<text x="732.0" y="778" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="685.0" y="742" width="44" height="28" class="f"/>
+<text x="689.0" y="768" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">PA</text>
+<text x="726.0" y="768" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<rect x="679.0" y="732" width="44" height="28" class="f"/>
+<text x="683.0" y="758" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">IR</text>
+<text x="720.0" y="758" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="673.0" y="722" width="44" height="28" class="f"/>
+<text x="692.0" y="739" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">FD</text>
+<text x="714.0" y="748" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M685.0 765.0 L120 765.0 L120 795" class="l" marker-end="url(#flecha)"/>
+<rect x="98.0" y="795" width="44" height="28" class="f"/>
+<text x="117.0" y="812" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">PA</text>
+<text x="139.0" y="821" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M120.0 823 L120 845" class="l" marker-end="url(#flecha)"/>
+<path d="M106 847H134V865L120 877L106 865Z" class="s"/>
+<text x="120" y="864" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">C2</text>
+<path d="M713.0 780 L713.0 832" class="l" marker-end="url(#flecha)"/>
+<path d="M698.0 835H728.0L713.0 861Z" class="s"/>
+<text x="713.0" y="848" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">D</text>
+<text x="772" y="94" font-size="11" font-weight="bold" text-decoration="underline">Formularios</text>
+<text x="774" y="110" font-size="10">FD: Formulario de Diagnóstico (web)</text>
+<text x="774" y="126" font-size="10">IR: Informe de Resultado (Índice Eco)</text>
+<text x="774" y="142" font-size="10">PA: Propuesta de Asesoramiento</text>
+<text x="772" y="170" font-size="11" font-weight="bold" text-decoration="underline">Procedimientos</text>
+<text x="774" y="186" font-size="10">1 - Controla que el Formulario de Diagnóstico tenga</text>
+<text x="774" y="199" font-size="10">    todas las preguntas respondidas.</text>
+<text x="774" y="215" font-size="10">2 - Calcula el Índice Eco consultando la Tabla de</text>
+<text x="774" y="228" font-size="10">    Puntajes y emite el Informe de Resultado por</text>
+<text x="774" y="241" font-size="10">    duplicado.</text>
+<text x="774" y="257" font-size="10">3 - Controla el Informe de Resultado consultando el</text>
+<text x="774" y="270" font-size="10">    Historial de Clientes.</text>
+<text x="774" y="286" font-size="10">4 - Emite la Propuesta de Asesoramiento por</text>
+<text x="774" y="299" font-size="10">    duplicado.</text>
+<text x="772" y="327" font-size="11" font-weight="bold" text-decoration="underline">Archivos</text>
+<text x="774" y="343" font-size="10">A - Tabla de Puntajes, ordenada por área.</text>
+<text x="774" y="359" font-size="10">B - Historial de Clientes, ordenado por correo</text>
+<text x="774" y="372" font-size="10">    electrónico.</text>
+<text x="774" y="388" font-size="10">C - Diagnósticos, ordenado por fecha.</text>
+<text x="774" y="404" font-size="10">D - Propuestas Pendientes (transitorio), ordenado</text>
+<text x="774" y="417" font-size="10">    por fecha.</text>
+<text x="774" y="433" font-size="10">C2 - Conector: continúa en el Cursograma 2.</text>
+</svg>

@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 940" width="960" height="940" font-family="Arial, Helvetica, sans-serif" fill="#1d1d1d">
+<defs><marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d1d1d"/></marker><style>.s{fill:#fff;stroke:#1d1d1d;stroke-width:1.4}.f{fill:#fff;stroke:#1d1d1d;stroke-width:1.2}.l{fill:none;stroke:#1d1d1d;stroke-width:1.2}.lp{fill:none;stroke:#1d1d1d;stroke-width:1.2;stroke-dasharray:5 4}.b{fill:none;stroke:#1d1d1d;stroke-width:1}</style></defs>
+<rect width="960" height="940" fill="#fff"/>
+<text x="14" y="28" font-size="16" font-weight="bold">Cursograma 2 – Asesoramiento, presupuesto y facturación</text>
+<text x="946" y="28" font-size="11" text-anchor="end">EcoControl · Consultora ambiental</text>
+<rect x="0.5" y="42" width="959" height="897.5" class="b"/>
+<line x1="0" y1="72" x2="960" y2="72" class="b"/>
+<text x="130.0" y="61" font-size="11.5" font-weight="bold" text-anchor="middle">Cliente</text>
+<line x1="260" y1="42" x2="260" y2="940" class="b"/>
+<text x="440.0" y="61" font-size="11.5" font-weight="bold" text-anchor="middle">Titular (Consultor)</text>
+<line x1="620" y1="42" x2="620" y2="940" class="b"/>
+<text x="632" y="61" font-size="11.5" font-weight="bold">Referencias</text>
+<path d="M116 86H144V104L130 116L116 104Z" class="s"/>
+<text x="130" y="103" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">C2</text>
+<path d="M130 116 L130 138" class="l" marker-end="url(#flecha)"/>
+<path d="M102 150L112 138H148L158 150L148 162H112Z" class="s"/>
+<path d="M130 162 L130 180" class="l" marker-end="url(#flecha)"/>
+<rect x="108.0" y="180" width="44" height="28" class="f"/>
+<text x="127.0" y="197" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">SA</text>
+<text x="149.0" y="206" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M152.0 194.0 L440 194.0 L440 240" class="l" marker-end="url(#flecha)"/>
+<rect x="418.0" y="240" width="44" height="28" class="f"/>
+<text x="437.0" y="257" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">SA</text>
+<text x="459.0" y="266" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M440.0 268 L440 290" class="l" marker-end="url(#flecha)"/>
+<rect x="425" y="290" width="30" height="30" class="s"/>
+<circle cx="440" cy="305" r="11" class="s"/>
+<text x="440" y="309" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">1</text>
+<path d="M355 293H385L370 319Z" class="s"/>
+<text x="370" y="306" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">A</text>
+<path d="M385 305 L425 305" class="lp" marker-end="url(#flecha)"/>
+<path d="M440 320 L440 340" class="l" marker-end="url(#flecha)"/>
+<path d="M440 340L472 360L440 380L408 360Z" class="s"/>
+<text x="440" y="363" font-size="8" font-weight="normal" font-style="normal" text-anchor="middle">¿Hay turno?</text>
+<text x="398" y="354" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">NO</text>
+<path d="M408 360 L360 360 L360 392" class="l" marker-end="url(#flecha)"/>
+<rect x="338.0" y="392" width="44" height="28" class="f"/>
+<text x="357.0" y="409" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">SA</text>
+<text x="379.0" y="418" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M360.0 420 L360 436" class="l" marker-end="url(#flecha)"/>
+<path d="M332 448L342 436H378L388 448L378 460H342Z" class="s"/>
+<text x="482" y="354" font-size="9" font-weight="bold" font-style="normal" text-anchor="middle">SI</text>
+<path d="M472 360 L514 360 L514 406" class="l" marker-end="url(#flecha)"/>
+<circle cx="514" cy="420" r="14" class="s"/>
+<text x="514" y="424" font-size="11" font-weight="bold" font-style="normal" text-anchor="middle">2</text>
+<path d="M565 408H595L580 434Z" class="s"/>
+<text x="580" y="421" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">A</text>
+<path d="M528 420 L565 420" class="lp" marker-end="url(#flecha)"/>
+<path d="M514 434 L514 465" class="l" marker-end="url(#flecha)"/>
+<rect x="498.0" y="475" width="44" height="28" class="f"/>
+<text x="502.0" y="501" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">SA</text>
+<text x="539.0" y="501" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<rect x="492.0" y="465" width="44" height="28" class="f"/>
+<text x="511.0" y="482" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">P</text>
+<text x="533.0" y="491" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M492.0 479.0 L130 479.0 L130 508" class="l" marker-end="url(#flecha)"/>
+<path d="M102 520L112 508H148L158 520L148 532H112Z" class="s"/>
+<path d="M130 532 L130 555" class="l" marker-end="url(#flecha)"/>
+<rect x="108.0" y="555" width="44" height="28" class="f"/>
+<text x="127.0" y="572" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">P</text>
+<text x="149.0" y="581" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M152.0 569.0 L520.0 569.0" class="l" marker-end="url(#flecha)"/>
+<path d="M520.0 503 L520.0 515" class="l" marker-end="url(#flecha)"/>
+<path d="M507.0 515h11a15 15 0 0 1 0 30h-11z" class="s"/>
+<path d="M520.0 545 L520.0 601" class="l" marker-end="url(#flecha)"/>
+<circle cx="520.0" cy="615" r="14" class="s"/>
+<text x="520.0" y="619" font-size="11" font-weight="bold" font-style="normal" text-anchor="middle">3</text>
+<path d="M520.0 629 L520.0 655" class="l" marker-end="url(#flecha)"/>
+<rect x="500.0" y="685" width="44" height="28" class="f"/>
+<text x="504.0" y="711" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">PM</text>
+<text x="541.0" y="711" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="494.0" y="675" width="44" height="28" class="f"/>
+<text x="498.0" y="701" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">PM</text>
+<text x="535.0" y="701" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<rect x="488.0" y="665" width="44" height="28" class="f"/>
+<text x="492.0" y="691" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">P</text>
+<text x="529.0" y="691" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<rect x="482.0" y="655" width="44" height="28" class="f"/>
+<text x="501.0" y="672" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">SA</text>
+<text x="523.0" y="681" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M494.0 698.0 L130 698.0 L130 733" class="l" marker-end="url(#flecha)"/>
+<path d="M102 745L112 733H148L158 745L148 757H112Z" class="s"/>
+<path d="M522.0 713 L522.0 746" class="l" marker-end="url(#flecha)"/>
+<circle cx="522.0" cy="760" r="14" class="s"/>
+<text x="522.0" y="764" font-size="11" font-weight="bold" font-style="normal" text-anchor="middle">4</text>
+<path d="M522.0 774 L522.0 800" class="l" marker-end="url(#flecha)"/>
+<rect x="504.0" y="840" width="44" height="28" class="f"/>
+<text x="508.0" y="866" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">F</text>
+<text x="545.0" y="866" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="498.0" y="830" width="44" height="28" class="f"/>
+<text x="502.0" y="856" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">F</text>
+<text x="539.0" y="856" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<rect x="492.0" y="820" width="44" height="28" class="f"/>
+<text x="496.0" y="846" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">PM</text>
+<text x="533.0" y="846" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">1</text>
+<rect x="486.0" y="810" width="44" height="28" class="f"/>
+<text x="490.0" y="836" font-size="7.5" font-weight="bold" font-style="normal" text-anchor="start">P</text>
+<text x="527.0" y="836" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<rect x="480.0" y="800" width="44" height="28" class="f"/>
+<text x="499.0" y="817" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">SA</text>
+<text x="521.0" y="826" font-size="7.5" font-weight="normal" font-style="normal" text-anchor="end">0</text>
+<path d="M498.0 853.0 L130 853.0 L130 888" class="l" marker-end="url(#flecha)"/>
+<path d="M102 900L112 888H148L158 900L148 912H112Z" class="s"/>
+<path d="M526.0 868 L526.0 892" class="l" marker-end="url(#flecha)"/>
+<path d="M526.0 892L541.0 918H511.0Z" class="s"/>
+<text x="526.0" y="914" font-size="10" font-weight="bold" font-style="normal" text-anchor="middle">B</text>
+<text x="632" y="94" font-size="11" font-weight="bold" text-decoration="underline">Formularios</text>
+<text x="634" y="110" font-size="10">SA: Solicitud de Asesoramiento (web)</text>
+<text x="634" y="126" font-size="10">P: Presupuesto</text>
+<text x="634" y="142" font-size="10">PM: Plan de Mejora ambiental</text>
+<text x="634" y="158" font-size="10">F: Factura C (monotributo)</text>
+<text x="632" y="186" font-size="11" font-weight="bold" text-decoration="underline">Procedimientos</text>
+<text x="634" y="202" font-size="10">1 - Controla la Solicitud de Asesoramiento</text>
+<text x="634" y="215" font-size="10">    consultando la Agenda de Turnos.</text>
+<text x="634" y="231" font-size="10">2 - Registra el turno en la Agenda de Turnos y emite</text>
+<text x="634" y="244" font-size="10">    el Presupuesto.</text>
+<text x="634" y="260" font-size="10">3 - Recibe el Presupuesto firmado, realiza la</text>
+<text x="634" y="273" font-size="10">    asesoría y emite el Plan de Mejora por</text>
+<text x="634" y="286" font-size="10">    duplicado.</text>
+<text x="634" y="302" font-size="10">4 - Emite la Factura C por duplicado.</text>
+<text x="632" y="330" font-size="11" font-weight="bold" text-decoration="underline">Archivos</text>
+<text x="634" y="346" font-size="10">A - Agenda de Turnos (transitorio), ordenada por</text>
+<text x="634" y="359" font-size="10">    fecha.</text>
+<text x="634" y="375" font-size="10">B - Legajos de Clientes, ordenado por correo</text>
+<text x="634" y="388" font-size="10">    electrónico.</text>
+<text x="634" y="404" font-size="10">C2 - Conector: viene del Cursograma 1.</text>
+</svg>
