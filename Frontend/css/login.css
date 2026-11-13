@@ -1,0 +1,78 @@
+/* =========================================================
+   EcoControl - Estilos exclusivos de la pantalla de login
+   (se carga después de styles.css)
+   ========================================================= */
+
+body { background: var(--gris-claro); }
+
+.login-contenedor {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---------- Lado izquierdo: identidad de la marca ---------- */
+.login-lado {
+  background: linear-gradient(160deg, var(--verde-oscuro) 0%, #0B2A1D 100%);
+  color: var(--blanco);
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+.logo-lado { width: 240px; height: auto; }
+.login-lado h1 { color: var(--blanco); font-size: clamp(1.8rem, 3vw, 2.6rem); margin-top: 16px; }
+.login-lado p { color: #CFE5D9; font-size: 1.05rem; max-width: 460px; }
+.login-lado .hero-img { max-width: 480px; margin-top: 10px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25); }
+
+/* ---------- Lado derecho: formularios ---------- */
+.login-panel {
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+}
+.login-tarjeta { width: min(440px, 100%); }
+.logo-movil { display: none; width: 200px; height: auto; margin: 0 auto 18px; }
+
+.login-tarjeta form .boton { width: 100%; margin-top: 6px; }
+
+/* Solo se muestra la vista (login, registro o recuperar) que tiene .activa */
+.vista { display: none; }
+.vista.activa { display: block; animation: aparecer 0.3s ease; }
+
+/* Campo de contraseña con el botón del ojo adentro */
+.campo-clave { position: relative; }
+.campo-clave input { padding-right: 48px; }
+.ver-clave {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 6px;
+  color: var(--gris-texto);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.ver-clave:hover { color: var(--esmeralda); }
+
+.enlaces {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 0.95rem;
+}
+.enlaces a { text-decoration: none; font-weight: 500; }
+.enlaces a:hover { text-decoration: underline; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .login-contenedor { grid-template-columns: 1fr; }
+  .login-lado { display: none; }
+  .logo-movil { display: block; }
+}
