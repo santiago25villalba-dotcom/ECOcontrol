@@ -66,5 +66,8 @@ Abrir `Frontend/login.html` con doble clic. Todo funciona igual, pero los usuari
 - Correo: `demo@ecocontrol.com`
 - Contraseña: `eco123`
 
+## Código destacado
+Los fragmentos de código más importantes, explicados, están en [docs/CODIGO.md](docs/CODIGO.md).
+
 ## Autor
 Santiago Villalba
