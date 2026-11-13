@@ -10,6 +10,7 @@
 // usamos un usuario vacío para que el código no falle mientras tanto.
 const usuario = obtenerSesion() || { nombre: '', email: '', modo: 'local' };
 const modoServidor = usuario.modo === 'servidor';
+const esAdmin = usuario.rol === 'admin'; // el Titular de la consultora
 
 /* =========================================================
    1. MENÚ Y NAVEGACIÓN ENTRE PANTALLAS
@@ -17,13 +18,17 @@ const modoServidor = usuario.modo === 'servidor';
 
 // Con la sesión iniciada mostramos el menú
 document.getElementById('menuApp').hidden = false;
+// La opción "Administración" solo la ve el Titular
+document.getElementById('menuAdmin').hidden = !esAdmin;
 
-const pantallasValidas = ['inicio', 'servicios', 'diagnostico', 'resultado', 'panel', 'proyecto', 'contacto'];
+const pantallasValidas = ['inicio', 'servicios', 'diagnostico', 'resultado', 'panel', 'admin', 'proyecto', 'contacto'];
 
 function mostrarPantalla(id) {
   if (!pantallasValidas.includes(id)) id = 'inicio';
   // "resultado" solo tiene sentido después de hacer un diagnóstico
   if (id === 'resultado' && !ultimoResultado) id = 'panel';
+  // "admin" solo para el Titular
+  if (id === 'admin' && !esAdmin) id = 'inicio';
 
   document.querySelectorAll('.pantalla').forEach(function (p) {
     p.classList.toggle('activa', p.id === id);
@@ -36,6 +41,7 @@ function mostrarPantalla(id) {
   // Acciones al entrar a cada pantalla
   if (id === 'diagnostico') iniciarDiagnostico();
   if (id === 'panel') cargarPanel();
+  if (id === 'admin') cargarAdmin();
 
   if (window.location.hash !== '#' + id) {
     history.pushState(null, '', '#' + id);
@@ -553,7 +559,7 @@ function abrirAsesoramiento() {
       ok = respuesta && respuesta.ok;
     } else {
       const lista = leerLocal('asesorias');
-      lista.push(Object.assign({ email: usuario.email, fecha: new Date().toISOString() }, datos));
+      lista.push(Object.assign({ id: Date.now(), email: usuario.email, nombre: usuario.nombre, fecha: new Date().toISOString(), estado: 'Pendiente' }, datos));
       guardarLocal('asesorias', lista);
       ok = true;
     }
@@ -567,6 +573,123 @@ function abrirAsesoramiento() {
   });
 
   document.getElementById('asesoriaArea').focus();
+}
+
+/* =========================================================
+   3 bis. PANEL DEL TITULAR (solo administrador)
+   ========================================================= */
+
+// Agrega una fila a una tabla con los valores indicados (como texto)
+function agregarFila(tabla, valores) {
+  const fila = document.createElement('tr');
+  valores.forEach(function (valor) {
+    const celda = document.createElement('td');
+    if (valor instanceof Node) celda.appendChild(valor);
+    else celda.textContent = valor;
+    fila.appendChild(celda);
+  });
+  tabla.appendChild(fila);
+}
+
+function filaVacia(tabla, columnas, texto) {
+  tabla.innerHTML = '<tr><td class="vacia" colspan="' + columnas + '"></td></tr>';
+  tabla.querySelector('td').textContent = texto;
+}
+
+// Arma los mismos datos que devuelve admin.php, pero desde el navegador
+function resumenLocal() {
+  const usuarios = leerLocal('usuarios').filter(function (u) { return u.rol !== 'admin'; });
+  const diagnosticos = leerLocal('diagnosticos');
+  const asesorias = leerLocal('asesorias');
+  // Las solicitudes viejas pueden no tener id ni estado
+  asesorias.forEach(function (a, i) {
+    if (!a.id) a.id = Date.now() + i;
+    if (!a.estado) a.estado = 'Pendiente';
+  });
+  guardarLocal('asesorias', asesorias);
+
+  const suma = diagnosticos.reduce(function (total, d) { return total + d.indice; }, 0);
+  return {
+    totales: {
+      clientes: usuarios.length,
+      diagnosticos: diagnosticos.length,
+      promedio: diagnosticos.length ? Math.round(suma / diagnosticos.length) : null,
+      pendientes: asesorias.filter(function (a) { return a.estado === 'Pendiente'; }).length
+    },
+    solicitudes: asesorias.slice().reverse(),
+    clientes: usuarios.map(function (u) {
+      const suyos = diagnosticos.filter(function (d) { return d.email === u.email; })
+        .sort(function (a, b) { return new Date(b.fecha) - new Date(a.fecha); });
+      return { nombre: u.nombre, email: u.email, diagnosticos: suyos.length, ultimo_indice: suyos.length ? suyos[0].indice : null };
+    }),
+    mensajes: leerLocal('contactos').slice().reverse()
+  };
+}
+
+async function cambiarEstado(id, estado) {
+  const aviso = document.getElementById('adminMensaje');
+  if (modoServidor) {
+    const respuesta = await llamarPHP('php/admin.php', { accion: 'cambiarEstado', id: id, estado: estado });
+    if (!respuesta || !respuesta.ok) {
+      return mostrarMensaje(aviso, 'No se pudo cambiar el estado.', 'error');
+    }
+  } else {
+    const lista = leerLocal('asesorias');
+    lista.forEach(function (a) { if (String(a.id) === String(id)) a.estado = estado; });
+    guardarLocal('asesorias', lista);
+  }
+  mostrarMensaje(aviso, 'Estado actualizado: ' + estado + '.', 'ok');
+  cargarAdmin();
+}
+
+async function cargarAdmin() {
+  let datos;
+  if (modoServidor) {
+    datos = await llamarPHP('php/admin.php', { accion: 'resumen' });
+    if (datos && datos.sinSesion) return cerrarSesion();
+    if (!datos || !datos.ok) {
+      return mostrarMensaje(document.getElementById('adminMensaje'), (datos && datos.mensaje) || 'No se pudieron cargar los datos.', 'error');
+    }
+  } else {
+    datos = resumenLocal();
+  }
+
+  const t = datos.totales;
+  document.getElementById('adminClientes').textContent = t.clientes;
+  document.getElementById('adminDiagnosticos').textContent = t.diagnosticos;
+  document.getElementById('adminPromedio').textContent = t.promedio === null || t.promedio === undefined ? '–' : t.promedio;
+  document.getElementById('adminPendientes').textContent = t.pendientes;
+
+  // Solicitudes de asesoramiento, con un selector para cambiar el estado
+  const solicitudes = document.getElementById('adminSolicitudes');
+  solicitudes.innerHTML = '';
+  if (datos.solicitudes.length === 0) filaVacia(solicitudes, 6, 'Todavía no hay solicitudes.');
+  datos.solicitudes.forEach(function (s) {
+    const selector = document.createElement('select');
+    selector.setAttribute('aria-label', 'Estado de la solicitud');
+    ['Pendiente', 'En curso', 'Finalizada'].forEach(function (estado) {
+      const opcion = document.createElement('option');
+      opcion.textContent = estado;
+      opcion.selected = estado === s.estado;
+      selector.appendChild(opcion);
+    });
+    selector.addEventListener('change', function () { cambiarEstado(s.id, selector.value); });
+    agregarFila(solicitudes, [formatearFecha(s.fecha), (s.nombre || '') + ' (' + s.email + ')', s.area, s.modalidad, s.mensaje, selector]);
+  });
+
+  const clientes = document.getElementById('adminTablaClientes');
+  clientes.innerHTML = '';
+  if (datos.clientes.length === 0) filaVacia(clientes, 4, 'Todavía no hay clientes registrados.');
+  datos.clientes.forEach(function (c) {
+    agregarFila(clientes, [c.nombre, c.email, c.diagnosticos, c.ultimo_indice === null ? '–' : c.ultimo_indice]);
+  });
+
+  const mensajes = document.getElementById('adminMensajes');
+  mensajes.innerHTML = '';
+  if (datos.mensajes.length === 0) filaVacia(mensajes, 5, 'Todavía no hay mensajes.');
+  datos.mensajes.forEach(function (m) {
+    agregarFila(mensajes, [formatearFecha(m.fecha), m.nombre, m.email, m.asunto, m.mensaje]);
+  });
 }
 
 /* =========================================================

@@ -27,7 +27,7 @@ function obtenerSesion() {
 }
 
 // Guarda el usuario que inició sesión.
-// usuario = { id, nombre, email, modo: 'servidor' | 'local' }
+// usuario = { id, nombre, email, rol: 'cliente' | 'admin', modo: 'servidor' | 'local' }
 function guardarSesion(usuario) {
   localStorage.setItem(CLAVE_SESION, JSON.stringify(usuario));
 }

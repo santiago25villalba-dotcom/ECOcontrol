@@ -83,8 +83,10 @@ CREATE TABLE IF NOT EXISTS recuperaciones (
 ) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------
--- Usuario de prueba
--- Correo: demo@ecocontrol.com   Contraseña: eco123
+-- Usuarios de prueba
+-- Cliente: demo@ecocontrol.com    Contraseña: eco123
+-- Titular: admin@ecocontrol.com   Contraseña: admin123
 -- ---------------------------------------------------------
 INSERT IGNORE INTO usuarios (nombre, email, clave, rol) VALUES
-('Usuario Demo', 'demo@ecocontrol.com', '$2y$10$tO/KXt17tIU3LLF20PU3MeOw4O7mqJx8mMya/64PBrE2rh1kXZARy', 'cliente');
+('Usuario Demo', 'demo@ecocontrol.com', '$2y$10$tO/KXt17tIU3LLF20PU3MeOw4O7mqJx8mMya/64PBrE2rh1kXZARy', 'cliente'),
+('Santiago Villalba (Titular)', 'admin@ecocontrol.com', '$2y$10$LwNCp/oJDPgDN8RG3jJq8u31Ybf02SaWudw21F5TX8Z2cC8VevVsC', 'admin');

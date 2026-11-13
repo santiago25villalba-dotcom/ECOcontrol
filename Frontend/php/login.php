@@ -10,7 +10,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($clave) < 6) {
     responder(['ok' => false, 'mensaje' => 'Correo o contraseña inválidos.'], 400);
 }
 
-$consulta = $conexion->prepare('SELECT id, nombre, email, clave FROM usuarios WHERE email = ?');
+$consulta = $conexion->prepare('SELECT id, nombre, email, clave, rol FROM usuarios WHERE email = ?');
 $consulta->bind_param('s', $email);
 $consulta->execute();
 $usuario = $consulta->get_result()->fetch_assoc();
@@ -21,8 +21,9 @@ if (!$usuario || !password_verify($clave, $usuario['clave'])) {
 
 session_regenerate_id(true);
 $_SESSION['usuario_id'] = $usuario['id'];
+$_SESSION['rol'] = $usuario['rol'];
 
 responder([
     'ok' => true,
-    'usuario' => ['id' => $usuario['id'], 'nombre' => $usuario['nombre'], 'email' => $usuario['email']]
+    'usuario' => ['id' => $usuario['id'], 'nombre' => $usuario['nombre'], 'email' => $usuario['email'], 'rol' => $usuario['rol']]
 ]);

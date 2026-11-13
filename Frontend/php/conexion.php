@@ -38,6 +38,16 @@ function exigirUsuario()
     return (int) $_SESSION['usuario_id'];
 }
 
+// Igual que exigirUsuario(), pero además el usuario tiene que ser el Titular (admin)
+function exigirAdmin()
+{
+    $id = exigirUsuario();
+    if (($_SESSION['rol'] ?? '') !== 'admin') {
+        responder(['ok' => false, 'mensaje' => 'Solo el Titular puede ver esta información.'], 403);
+    }
+    return $id;
+}
+
 // Solo aceptamos pedidos POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     responder(['ok' => false, 'mensaje' => 'Método no permitido.'], 405);

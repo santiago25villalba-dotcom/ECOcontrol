@@ -34,6 +34,7 @@
         <a href="#" data-ir="proyecto">Proyecto</a>
         <a href="#" data-ir="contacto">Contacto</a>
         <a href="#" data-ir="panel">Mi panel</a>
+        <a href="#" data-ir="admin" id="menuAdmin" hidden>Administración</a>
         <a href="#" id="botonSalir" class="boton boton-borde">Salir</a>
       </span>
     </nav>
@@ -201,6 +202,39 @@
         <div style="overflow-x:auto">
           <table><thead><tr><th>Fecha</th><th>Tipo</th><th>Índice</th><th>Nivel</th></tr></thead><tbody id="panelHistorial"></tbody></table>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PANEL DEL TITULAR (solo administrador) ===== -->
+<section class="pantalla" id="admin">
+  <div class="contenedor">
+    <h2>Panel del Titular</h2>
+    <p class="gris">Clientes, solicitudes de asesoramiento y mensajes recibidos por la consultora.</p>
+    <div class="resumen-admin">
+      <div class="tarjeta"><p class="gris">Clientes</p><p class="numero-grande" id="adminClientes">0</p></div>
+      <div class="tarjeta"><p class="gris">Diagnósticos</p><p class="numero-grande" id="adminDiagnosticos">0</p></div>
+      <div class="tarjeta"><p class="gris">Índice Eco promedio</p><p class="numero-grande" id="adminPromedio">–</p></div>
+      <div class="tarjeta"><p class="gris">Solicitudes pendientes</p><p class="numero-grande" id="adminPendientes">0</p></div>
+    </div>
+    <div class="tarjeta" style="margin-top:20px">
+      <h3>Solicitudes de asesoramiento</h3>
+      <div style="overflow-x:auto">
+        <table><thead><tr><th>Fecha</th><th>Cliente</th><th>Área</th><th>Modalidad</th><th>Mensaje</th><th>Estado</th></tr></thead><tbody id="adminSolicitudes"></tbody></table>
+      </div>
+      <p class="mensaje" id="adminMensaje" role="status"></p>
+    </div>
+    <div class="tarjeta" style="margin-top:20px">
+      <h3>Clientes</h3>
+      <div style="overflow-x:auto">
+        <table><thead><tr><th>Nombre</th><th>Correo</th><th>Diagnósticos</th><th>Último Índice Eco</th></tr></thead><tbody id="adminTablaClientes"></tbody></table>
+      </div>
+    </div>
+    <div class="tarjeta" style="margin-top:20px">
+      <h3>Mensajes de contacto</h3>
+      <div style="overflow-x:auto">
+        <table><thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Asunto</th><th>Mensaje</th></tr></thead><tbody id="adminMensajes"></tbody></table>
       </div>
     </div>
   </div>

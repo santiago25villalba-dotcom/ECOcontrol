@@ -34,5 +34,6 @@ $id = $conexion->insert_id;
 
 session_regenerate_id(true);
 $_SESSION['usuario_id'] = $id;
+$_SESSION['rol'] = 'cliente';
 
-responder(['ok' => true, 'usuario' => ['id' => $id, 'nombre' => $nombre, 'email' => $email]]);
+responder(['ok' => true, 'usuario' => ['id' => $id, 'nombre' => $nombre, 'email' => $email, 'rol' => 'cliente']]);
