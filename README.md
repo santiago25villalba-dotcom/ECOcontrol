@@ -89,6 +89,9 @@ Los fragmentos de código más importantes, explicados, están en [docs/CODIGO.m
 ## Diseño UI/UX
 Wireframes, paleta, tipografías y diseño responsivo en [docs/DISENO-UI-UX.md](docs/DISENO-UI-UX.md).
 
+## Diagramas de flujo de datos
+DFD nivel 0 (contexto) y nivel 1 en [docs/DFD.md](docs/DFD.md).
+
 ## Base de datos
 El DER y el diccionario de datos están en [docs/BASE-DE-DATOS.md](docs/BASE-DE-DATOS.md).
 

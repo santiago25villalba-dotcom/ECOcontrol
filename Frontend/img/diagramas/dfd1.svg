@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 930" width="1180" height="930" font-family="Arial, Helvetica, sans-serif" fill="#1d1d1d">
+<defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1d1d1d"/></marker></defs>
+<rect width="1180" height="930" fill="#fff"/>
+<text x="30" y="36" font-size="18" font-weight="bold" fill="#123D2B">DFD nivel 1 – Procesos principales de EcoControl</text>
+<rect x="35.0" y="420.0" width="120" height="60" fill="#E8F3ED" stroke="#123D2B" stroke-width="2"/>
+<text x="95" y="455" font-size="14" font-weight="bold" fill="#123D2B" text-anchor="middle">Cliente</text>
+<rect x="1055.0" y="270.0" width="110" height="60" fill="#E8F3ED" stroke="#123D2B" stroke-width="2"/>
+<text x="1110" y="305" font-size="14" font-weight="bold" fill="#123D2B" text-anchor="middle">Titular</text>
+<circle cx="330" cy="150" r="52" fill="#fff" stroke="#0E7556" stroke-width="2"/>
+<line x1="289.44" y1="128.16" x2="370.56" y2="128.16" stroke="#0E7556" stroke-width="1"/>
+<text x="330" y="122.96000000000001" font-size="11" font-weight="bold" fill="#0E7556" text-anchor="middle">1</text>
+<text x="330" y="151.5" font-size="11" font-weight="600" text-anchor="middle">Gestionar</text>
+<text x="330" y="164.5" font-size="11" font-weight="600" text-anchor="middle">usuarios</text>
+<circle cx="330" cy="330" r="52" fill="#fff" stroke="#0E7556" stroke-width="2"/>
+<line x1="289.44" y1="308.16" x2="370.56" y2="308.16" stroke="#0E7556" stroke-width="1"/>
+<text x="330" y="302.96" font-size="11" font-weight="bold" fill="#0E7556" text-anchor="middle">2</text>
+<text x="330" y="331.5" font-size="11" font-weight="600" text-anchor="middle">Realizar</text>
+<text x="330" y="344.5" font-size="11" font-weight="600" text-anchor="middle">diagnóstico</text>
+<circle cx="560" cy="470" r="52" fill="#fff" stroke="#0E7556" stroke-width="2"/>
+<line x1="519.44" y1="448.16" x2="600.56" y2="448.16" stroke="#0E7556" stroke-width="1"/>
+<text x="560" y="442.96" font-size="11" font-weight="bold" fill="#0E7556" text-anchor="middle">3</text>
+<text x="560" y="471.5" font-size="11" font-weight="600" text-anchor="middle">Calcular</text>
+<text x="560" y="484.5" font-size="11" font-weight="600" text-anchor="middle">Índice Eco</text>
+<circle cx="560" cy="600" r="48" fill="#fff" stroke="#0E7556" stroke-width="2"/>
+<line x1="522.56" y1="579.84" x2="597.44" y2="579.84" stroke="#0E7556" stroke-width="1"/>
+<text x="560" y="575.04" font-size="11" font-weight="bold" fill="#0E7556" text-anchor="middle">4</text>
+<text x="560" y="601.5" font-size="11" font-weight="600" text-anchor="middle">Generar</text>
+<text x="560" y="614.5" font-size="11" font-weight="600" text-anchor="middle">informe</text>
+<circle cx="330" cy="690" r="52" fill="#fff" stroke="#0E7556" stroke-width="2"/>
+<line x1="289.44" y1="668.16" x2="370.56" y2="668.16" stroke="#0E7556" stroke-width="1"/>
+<text x="330" y="662.96" font-size="11" font-weight="bold" fill="#0E7556" text-anchor="middle">5</text>
+<text x="330" y="691.5" font-size="11" font-weight="600" text-anchor="middle">Gestionar</text>
+<text x="330" y="704.5" font-size="11" font-weight="600" text-anchor="middle">asesoramientos</text>
+<circle cx="330" cy="850" r="46" fill="#fff" stroke="#0E7556" stroke-width="2"/>
+<line x1="294.12" y1="830.68" x2="365.88" y2="830.68" stroke="#0E7556" stroke-width="1"/>
+<text x="330" y="826.08" font-size="11" font-weight="bold" fill="#0E7556" text-anchor="middle">6</text>
+<text x="330" y="851.5" font-size="11" font-weight="600" text-anchor="middle">Atender</text>
+<text x="330" y="864.5" font-size="11" font-weight="600" text-anchor="middle">contactos</text>
+<circle cx="900" cy="300" r="52" fill="#fff" stroke="#0E7556" stroke-width="2"/>
+<line x1="859.44" y1="278.16" x2="940.56" y2="278.16" stroke="#0E7556" stroke-width="1"/>
+<text x="900" y="272.96" font-size="11" font-weight="bold" fill="#0E7556" text-anchor="middle">7</text>
+<text x="900" y="301.5" font-size="11" font-weight="600" text-anchor="middle">Administrar</text>
+<text x="900" y="314.5" font-size="11" font-weight="600" text-anchor="middle">consultora</text>
+<rect x="555.0" y="55.0" width="170" height="30" fill="#fff" stroke="none"/>
+<path d="M725.0 55.0H555.0V85.0H725.0M589.0 55.0V85.0" fill="none" stroke="#1d1d1d" stroke-width="1.6"/>
+<text x="572.0" y="74" font-size="11" font-weight="bold" text-anchor="middle">D1</text>
+<text x="599.0" y="74" font-size="11.5">Usuarios</text>
+<rect x="550.0" y="225.0" width="180" height="30" fill="#fff" stroke="none"/>
+<path d="M730.0 225.0H550.0V255.0H730.0M584.0 225.0V255.0" fill="none" stroke="#1d1d1d" stroke-width="1.6"/>
+<text x="567.0" y="244" font-size="11" font-weight="bold" text-anchor="middle">D5</text>
+<text x="594.0" y="244" font-size="11.5">Recuperaciones</text>
+<rect x="675.0" y="455.0" width="170" height="30" fill="#fff" stroke="none"/>
+<path d="M845.0 455.0H675.0V485.0H845.0M709.0 455.0V485.0" fill="none" stroke="#1d1d1d" stroke-width="1.6"/>
+<text x="692.0" y="474" font-size="11" font-weight="bold" text-anchor="middle">D2</text>
+<text x="719.0" y="474" font-size="11.5">Diagnósticos</text>
+<rect x="815.0" y="705.0" width="170" height="30" fill="#fff" stroke="none"/>
+<path d="M985.0 705.0H815.0V735.0H985.0M849.0 705.0V735.0" fill="none" stroke="#1d1d1d" stroke-width="1.6"/>
+<text x="832.0" y="724" font-size="11" font-weight="bold" text-anchor="middle">D3</text>
+<text x="859.0" y="724" font-size="11.5">Asesorías</text>
+<rect x="975.0" y="835.0" width="170" height="30" fill="#fff" stroke="none"/>
+<path d="M1145.0 835.0H975.0V865.0H1145.0M1009.0 835.0V865.0" fill="none" stroke="#1d1d1d" stroke-width="1.6"/>
+<text x="992.0" y="854" font-size="11" font-weight="bold" text-anchor="middle">D4</text>
+<text x="1019.0" y="854" font-size="11.5">Contactos</text>
+<line x1="111.4" y1="414.5" x2="290.8" y2="185.4" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="305.0" y1="196.5" x2="125.6" y2="425.5" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="153.8" y1="420.0" x2="283.7" y2="353.6" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="508.0" y1="467.8" x2="155.0" y2="452.6" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="514.3" y1="585.3" x2="155.0" y2="469.4" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="124.4" y1="480.0" x2="293.6" y2="652.8" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="112.6" y1="480.0" x2="306.7" y2="810.3" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="374.4" y1="357.0" x2="515.6" y2="443.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="560.0" y1="522.0" x2="560.0" y2="552.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="378.4" y1="129.3" x2="579.9" y2="77.3" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="583.9" y1="92.7" x2="382.3" y2="144.8" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="382.2" y1="156.8" x2="590.6" y2="217.3" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="586.1" y1="232.7" x2="377.7" y2="172.2" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="612.0" y1="470.0" x2="675.0" y2="470.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="1055.0" y1="310.0" x2="952.0" y2="310.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="952.0" y1="290.0" x2="1055.0" y2="290.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="657.0" y1="85.0" x2="861.1" y2="265.5" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="772.4" y1="455.0" x2="866.9" y2="340.1" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="891.0" y1="705.0" x2="891.0" y2="352.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="909.0" y1="352.0" x2="909.0" y2="705.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="381.9" y1="692.7" x2="815.0" y2="715.5" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="376.0" y1="850.0" x2="975.0" y2="850.0" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<line x1="1055.6" y1="835.0" x2="914.5" y2="349.9" stroke="#1d1d1d" stroke-width="1.3" marker-end="url(#f)"/>
+<rect x="70.8" y="303.2" width="108.0" height="30" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="124.8" y="316.2" font-size="10" font-style="italic" text-anchor="middle">Datos de registro</text>
+<text x="124.8" y="329.2" font-size="10" font-style="italic" text-anchor="middle">e inicio de sesión</text>
+<rect x="122.1" y="227.3" width="130.0" height="30" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="187.1" y="240.3" font-size="10" font-style="italic" text-anchor="middle">Sesión iniciada o</text>
+<text x="187.1" y="253.3" font-size="10" font-style="italic" text-anchor="middle">enlace de recuperación</text>
+<rect x="185.7" y="366.3" width="66.0" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="218.7" y="379.3" font-size="10" font-style="italic" text-anchor="middle">Respuestas</text>
+<rect x="249.0" y="440.7" width="165.0" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="331.5" y="453.7" font-size="10" font-style="italic" text-anchor="middle">Índice Eco y recomendaciones</text>
+<rect x="277.2" y="530.8" width="115.0" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="334.7" y="543.8" font-size="10" font-style="italic" text-anchor="middle">Informe de Resultado</text>
+<rect x="121.5" y="551.4" width="85.0" height="30" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="164.0" y="564.4" font-size="10" font-style="italic" text-anchor="middle">Solicitud de</text>
+<text x="164.0" y="577.4" font-size="10" font-style="italic" text-anchor="middle">asesoramiento</text>
+<rect x="142.4" y="646.7" width="70.0" height="30" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="177.4" y="659.7" font-size="10" font-style="italic" text-anchor="middle">Mensaje de</text>
+<text x="177.4" y="672.7" font-size="10" font-style="italic" text-anchor="middle">contacto</text>
+<rect x="444.0" y="377.5" width="118.0" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="503.0" y="390.5" font-size="10" font-style="italic" text-anchor="middle">Respuestas validadas</text>
+<rect x="563.8" y="528.5" width="60.4" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="594.0" y="541.5" font-size="10" font-style="italic" text-anchor="middle">Resultado</text>
+<rect x="436.6" y="79.2" width="105.2" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="489.2" y="92.2" font-size="10" font-style="italic" text-anchor="middle">Datos del usuario</text>
+<rect x="418.2" y="121.6" width="150.0" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="493.2" y="134.6" font-size="10" font-style="italic" text-anchor="middle">Usuario y clave encriptada</text>
+<rect x="431.8" y="167.6" width="130.0" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="496.8" y="180.6" font-size="10" font-style="italic" text-anchor="middle">Código de recuperación</text>
+<rect x="432.3" y="211.0" width="120.0" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="492.3" y="224.0" font-size="10" font-style="italic" text-anchor="middle">Validación del código</text>
+<rect x="614.0" y="447.5" width="71.6" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="649.8" y="460.5" font-size="10" font-style="italic" text-anchor="middle">Diagnóstico</text>
+<rect x="953.7" y="273.5" width="99.6" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="1003.5" y="286.5" font-size="10" font-style="italic" text-anchor="middle">Cambio de estado</text>
+<rect x="934.5" y="311.0" width="118.0" height="30" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="993.5" y="324.0" font-size="10" font-style="italic" text-anchor="middle">Totales, solicitudes,</text>
+<text x="993.5" y="337.0" font-size="10" font-style="italic" text-anchor="middle">clientes y mensajes</text>
+<rect x="751.6" y="154.8" width="54.8" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="779.0" y="167.8" font-size="10" font-style="italic" text-anchor="middle">Clientes</text>
+<rect x="743.0" y="389.1" width="77.2" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="781.6" y="402.1" font-size="10" font-style="italic" text-anchor="middle">Diagnósticos</text>
+<rect x="817.2" y="555.3" width="71.6" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="853.0" y="568.3" font-size="10" font-style="italic" text-anchor="middle">Solicitudes</text>
+<rect x="912.4" y="555.3" width="77.2" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="951.0" y="568.3" font-size="10" font-style="italic" text-anchor="middle">Nuevo estado</text>
+<rect x="568.3" y="683.6" width="60.4" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="598.5" y="696.6" font-size="10" font-style="italic" text-anchor="middle">Solicitud</text>
+<rect x="620.9" y="829.5" width="49.2" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="645.5" y="842.5" font-size="10" font-style="italic" text-anchor="middle">Mensaje</text>
+<rect x="991.7" y="584.0" width="54.8" height="17" rx="3" fill="#fff" fill-opacity=".93"/>
+<text x="1019.1" y="597.0" font-size="10" font-style="italic" text-anchor="middle">Mensajes</text>
+<text x="30" y="896" font-size="11" fill="#444">Notación Yourdon-DeMarco: rectángulo = entidad externa · círculo = proceso · dos líneas = almacén de datos (cada almacén es una tabla de MySQL).</text>
+<text x="30" y="912" font-size="11" fill="#444">El proceso 4 lo realiza el servicio de Node.js; los demás, el JavaScript del navegador junto con PHP.</text>
+</svg>
