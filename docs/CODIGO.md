@@ -31,8 +31,10 @@ Este documento reúne los fragmentos de código más importantes del sistema, ex
 | `js/login.js` | JavaScript | Lógica de la pantalla de acceso |
 | `js/app.js` | JavaScript | Lógica de la aplicación: diagnóstico, Índice Eco, panel, asesoramiento y contacto |
 | `php/conexion.php` | PHP | Conexión a MySQL y funciones comunes |
-| `php/login.php`, `registro.php`, `logout.php`, `recuperar.php` | PHP | Manejo de usuarios |
+| `php/login.php`, `registro.php`, `logout.php`, `recuperar.php` | PHP | Manejo de usuarios y roles |
 | `php/diagnosticos.php` | PHP | Guarda y lista los diagnósticos |
+| `php/admin.php` | PHP | Datos del panel del Titular (solo rol admin) y cambio de estado de solicitudes |
+| `php/nueva_clave.php` | PHP | Cambia la contraseña con el enlace de recuperación (un solo uso, vence en 1 hora) |
 | `php/asesoramiento.php`, `contacto.php` | PHP | Guardan solicitudes y mensajes |
 | `database/ecocontrol.sql` | SQL | Crea la base de datos, las tablas y el usuario de prueba |
 | `servicio-node/servidor.js` | Node.js | Servidor HTTP del servicio de informes (puerto 3000) |

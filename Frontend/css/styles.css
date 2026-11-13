@@ -50,7 +50,7 @@ h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
 h3 { font-size: 1.15rem; font-weight: 700; }
 
 p { margin: 0 0 12px; }
-a { color: var(--esmeralda); }
+a { color: var(--esmeralda-hover); } /* tono más oscuro: mejor contraste para texto chico */
 img { max-width: 100%; }
 
 .gris { color: var(--gris-texto); }
@@ -244,7 +244,7 @@ input.invalido, textarea.invalido { border-color: var(--rojo); }
 
 .mensaje { min-height: 1.4em; margin-top: 12px; font-weight: 500; }
 .mensaje.error { color: var(--rojo); }
-.mensaje.ok { color: var(--esmeralda); }
+.mensaje.ok { color: var(--esmeralda-hover); }
 
 /* ---------- Diagnóstico ---------- */
 .progreso {
@@ -458,7 +458,8 @@ td.vacia { text-align: center; color: var(--gris-texto); }
   .dos-columnas { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 760px) {
+/* Menú desplegable (botón ☰) en pantallas medianas y chicas */
+@media (max-width: 1080px) {
   .menu-boton { display: block; }
   .menu {
     display: none;
@@ -473,6 +474,9 @@ td.vacia { text-align: center; color: var(--gris-texto); }
   .menu.abierto { display: block; }
   .menu #menuApp { flex-direction: column; align-items: stretch; }
   .menu a.boton { margin-left: 0; text-align: center; }
+}
+
+@media (max-width: 760px) {
   .resultado-cabecera { grid-template-columns: 1fr; justify-items: center; }
   .tarjeta { padding: 20px; }
   .cta { padding: 24px; }

@@ -77,15 +77,23 @@ No hace falta `npm install`: el servicio usa solo módulos que ya trae Node.js. 
 ### Opción 2: sin servidor (para mostrar el proyecto)
 Abrir `Frontend/login.html` con doble clic. Todo funciona igual, pero los usuarios y diagnósticos se guardan en el navegador (localStorage) en lugar de MySQL.
 
-### Usuario de prueba
-- Correo: `demo@ecocontrol.com`
-- Contraseña: `eco123`
+### Usuarios de prueba
+| Rol | Correo | Contraseña |
+|---|---|---|
+| Cliente | `demo@ecocontrol.com` | `eco123` |
+| Titular (administrador) | `admin@ecocontrol.com` | `admin123` |
 
 ## Código destacado
 Los fragmentos de código más importantes, explicados, están en [docs/CODIGO.md](docs/CODIGO.md).
 
+## Diseño UI/UX
+Wireframes, paleta, tipografías y diseño responsivo en [docs/DISENO-UI-UX.md](docs/DISENO-UI-UX.md).
+
+## Base de datos
+El DER y el diccionario de datos están en [docs/BASE-DE-DATOS.md](docs/BASE-DE-DATOS.md).
+
 ## Matriz de pruebas
-Las 35 pruebas realizadas, con su resultado, están en [docs/MATRIZ-DE-PRUEBAS.md](docs/MATRIZ-DE-PRUEBAS.md).
+Las 43 pruebas realizadas, con su resultado, están en [docs/MATRIZ-DE-PRUEBAS.md](docs/MATRIZ-DE-PRUEBAS.md).
 
 ## Autor
 Santiago Villalba

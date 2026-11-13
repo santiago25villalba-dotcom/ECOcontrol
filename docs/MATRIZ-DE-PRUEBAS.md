@@ -1,6 +1,6 @@
 # EcoControl – Matriz de pruebas
 
-Pruebas realizadas el 13/11/2026 sobre la versión publicada en GitHub. Resultado: **34 aprobadas**, **0 fallidas** y **1 pendiente** de un total de 35.
+Pruebas realizadas el 13/11/2026 sobre la versión publicada en GitHub. Resultado: **42 aprobadas**, **0 fallidas** y **1 pendiente** de un total de 43.
 
 **Entorno:** navegador Google Chrome (escritorio 1280 px y celular 390 px), PHP 8.3 y Node.js 22. Las pruebas de la interfaz se ejecutaron en modo local (sin servidor); las de PHP, con el servidor de PHP sin base de datos. La prueba con MySQL queda pendiente para ejecutarse en XAMPP.
 
@@ -30,17 +30,25 @@ Pruebas realizadas el 13/11/2026 sobre la versión publicada en GitHub. Resultad
 | P-22 | Panel | Historial de diagnósticos | 3 diagnósticos completos (P-16, P-17, P-18) | 3 filas en el historial y último índice 84 | 3 filas, último índice 84 | Aprobada |
 | P-23 | Asesoramiento | Solicitar asesoramiento | Primero sin mensaje y luego con mensaje | Error sin mensaje; confirmación con mensaje | «Contanos brevemente qué necesitás.» / «¡Solicitud enviada! Te vamos a…» | Aprobada |
 | P-24 | Contacto | Enviar el formulario de contacto | Primero con asunto y mensaje vacíos, luego completo | Error con campos vacíos; agradecimiento con datos completos | «Revisá los campos marcados en rojo.» / «¡Gracias, Santiago! Recib…» | Aprobada |
-| P-25 | Documentación | Pestañas de documentación del proyecto | Clic en las 10 pestañas | Cada pestaña muestra su contenido y cargan todas las imágenes | 10 de 10 pestañas; 11 de 11 imágenes cargadas | Aprobada |
+| P-25 | Documentación | Pestañas de documentación del proyecto | Clic en las 10 pestañas | Cada pestaña muestra su contenido y cargan todas las imágenes | 10 de 10 pestañas; 16 de 16 imágenes cargadas | Aprobada |
 | P-26 | Sesión | Recargar la página con la sesión iniciada | F5 en la pantalla Proyecto | Sigue en la aplicación y en la misma pantalla | Pantalla Proyecto visible: True | Aprobada |
 | P-27 | Diseño responsivo | Menú en pantalla de celular | Ancho 390 px | Menú oculto, se abre con ☰ y se cierra al elegir | Antes: oculto, con ☰: visible, al elegir: oculto | Aprobada |
 | P-28 | Diseño responsivo | Sin desplazamiento horizontal en celular | Ancho 390 px | El contenido entra en el ancho de la pantalla | Ancho del contenido: 390 px | Aprobada |
 | P-29 | Sesión | Cerrar sesión | Botón Salir y después abrir index.html | Vuelve al login y no deja entrar sin sesión | Terminó en login.html | Aprobada |
 | P-30 | Acceso | Login con el usuario de prueba | demo@ecocontrol.com / eco123 | Entra a la aplicación | Entró a index.html#inicio | Aprobada |
-| P-31 | Backend PHP | Sintaxis de los archivos PHP | php -l en los 8 archivos | Sin errores de sintaxis | 8 de 8 archivos sin errores | Aprobada |
+| P-31 | Backend PHP | Sintaxis de los archivos PHP | php -l en los 10 archivos | Sin errores de sintaxis | 10 de 10 archivos sin errores | Aprobada |
 | P-32 | Backend PHP | Pedido GET a login.php | GET /php/login.php | Rechaza el pedido (código 405) | Código 405 | Aprobada |
 | P-33 | Backend PHP | Login con MySQL apagado | POST a login.php sin base de datos | Mensaje claro indicando revisar MySQL en XAMPP | No se pudo conectar a la base de datos. Revisá que MySQL est… | Aprobada |
 | P-34 | Servicio Node.js | Pruebas automáticas del servicio (npm test) | N-01 a N-06: cálculo, niveles, rangos, XSS, índice falso, rutas HTTP | 6 pruebas aprobadas | 6 aprobadas, 0 fallidas | Aprobada |
 | P-35 | Base de datos | Registro, login y diagnósticos guardados en MySQL | XAMPP con la base ecocontrol importada | Los datos se guardan y se leen desde MySQL | Pendiente: se ejecuta en la computadora con XAMPP | Pendiente |
+| P-36 | Panel del Titular | Un cliente intenta entrar al panel del Titular | Cliente demo; menú y dirección index.html#admin | No ve la opción y no puede abrir el panel | Opción visible: False; panel abierto: False | Aprobada |
+| P-37 | Panel del Titular | El Titular ve los totales y las solicitudes | admin@ecocontrol.com / admin123, con 1 cliente, 1 diagnóstico (índice 100) y 1 solicitud | Clientes 1, diagnósticos 1, promedio 100, pendientes 1 | Clientes 1, diagnósticos 1, promedio 100, pendientes 1 | Aprobada |
+| P-38 | Panel del Titular | Cambiar el estado de una solicitud | Pendiente → Finalizada y recargar la página | El estado queda guardado y bajan las pendientes | Estado: Finalizada; pendientes: 0 | Aprobada |
+| P-39 | Recuperar contraseña | Abrir el enlace de recuperación | Enlace de demostración para demo@ecocontrol.com | Se abre la pantalla para crear la nueva contraseña | Pantalla de nueva contraseña visible: True | Aprobada |
+| P-40 | Recuperar contraseña | Guardar la nueva contraseña | Primero contraseñas distintas, luego nueva12 dos veces | Error si no coinciden; confirmación si coinciden | «Las contraseñas no coinciden.» / «¡Listo! Tu contraseña fue camb…» | Aprobada |
+| P-41 | Recuperar contraseña | Iniciar sesión después del cambio | Contraseña vieja eco123 y nueva nueva12 | La vieja no funciona y la nueva sí | Vieja: «La contraseña es incorrecta.»; nueva: entró a la aplicación | Aprobada |
+| P-42 | Recuperar contraseña | Usar dos veces el mismo enlace | Enlace ya usado en P-40 | Rechaza el enlace | El enlace venció o ya fue usado. Pedí uno nuevo desde "Olvidé mi contraseña". | Aprobada |
+| P-43 | Diseño responsivo | Menú completo del Titular en todos los anchos | Anchos de 380 a 1290 px (cada 10 px) | Nunca aparece desplazamiento horizontal | Sin desborde en ningún ancho | Aprobada |
 
 ## Cómo repetir las pruebas
 
