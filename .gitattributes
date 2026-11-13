@@ -1,0 +1,3 @@
+# Estadísticas de lenguajes de GitHub (barra "Languages")
+*.sql linguist-language=SQL
+docs/** linguist-documentation
