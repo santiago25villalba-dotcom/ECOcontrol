@@ -423,6 +423,40 @@ function mostrarResultado(r) {
   llenarRecomendaciones(document.getElementById('resultadoRecomendaciones'), r.recomendaciones);
 }
 
+/* ---------- Informe de Resultado (servicio Node.js) ---------- */
+// El informe imprimible lo arma el servicio de Node.js (carpeta servicio-node).
+// Para usarlo: abrir una terminal en servicio-node y ejecutar "node servidor.js".
+const URL_SERVICIO_INFORMES = 'http://localhost:3000/api/informe';
+
+document.getElementById('botonInforme').addEventListener('click', async function () {
+  const aviso = document.getElementById('resultadoAviso');
+  if (!ultimoResultado) return;
+
+  // Abrimos la pestaña antes de esperar la respuesta para que el navegador no la bloquee
+  const ventana = window.open('', '_blank');
+  if (!ventana) {
+    return mostrarMensaje(aviso, 'Permití las ventanas emergentes para ver el informe.', 'error');
+  }
+  ventana.document.write('<p style="font-family:Arial">Generando el informe…</p>');
+
+  try {
+    const datos = Object.assign({ nombre: usuario.nombre, email: usuario.email }, ultimoResultado);
+    const respuesta = await fetch(URL_SERVICIO_INFORMES, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos)
+    });
+    if (!respuesta.ok) throw new Error('Respuesta ' + respuesta.status);
+    const html = await respuesta.text();
+    ventana.document.open();
+    ventana.document.write(html);
+    ventana.document.close();
+  } catch (error) {
+    ventana.close();
+    mostrarMensaje(aviso, 'El servicio de informes (Node.js) no está encendido. Abrí una terminal en la carpeta servicio-node y ejecutá: node servidor.js', 'error');
+  }
+});
+
 /* =========================================================
    3. PANEL DEL USUARIO
    ========================================================= */

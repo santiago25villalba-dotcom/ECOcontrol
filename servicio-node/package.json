@@ -1,0 +1,15 @@
+{
+  "name": "ecocontrol-servicio-informes",
+  "version": "1.0.0",
+  "description": "Servicio en Node.js de EcoControl: valida el Índice Eco y genera el Informe de Resultado imprimible.",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js",
+    "test": "node --test pruebas/servicio.test.js"
+  },
+  "author": "Santiago Villalba",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  }
+}

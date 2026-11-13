@@ -17,6 +17,7 @@ Este documento reúne los fragmentos de código más importantes del sistema, ex
 12. [Guardar diagnósticos en MySQL](#12-guardar-diagnósticos-en-mysql-phpdiagnosticosphp)
 13. [Base de datos](#13-base-de-datos-databaseecocontrolsql)
 14. [Diseño responsivo](#14-diseño-responsivo-cssstylescss)
+15. [Servicio de informes en Node.js](#15-servicio-de-informes-en-nodejs-servicio-node)
 
 ## 1. Tecnologías y archivos
 
@@ -34,8 +35,10 @@ Este documento reúne los fragmentos de código más importantes del sistema, ex
 | `php/diagnosticos.php` | PHP | Guarda y lista los diagnósticos |
 | `php/asesoramiento.php`, `contacto.php` | PHP | Guardan solicitudes y mensajes |
 | `database/ecocontrol.sql` | SQL | Crea la base de datos, las tablas y el usuario de prueba |
+| `servicio-node/servidor.js` | Node.js | Servidor HTTP del servicio de informes (puerto 3000) |
+| `servicio-node/informe.js`, `indice.js` | Node.js | Arman el Informe de Resultado y recalculan el Índice Eco |
 
-**Cómo se comunican:** el navegador (HTML, CSS y JavaScript) envía los datos en formato JSON con `fetch()` a los archivos PHP; PHP los valida y los guarda en MySQL, y responde también en JSON.
+**Cómo se comunican:** el navegador (HTML, CSS y JavaScript) envía los datos en formato JSON con `fetch()` a los archivos PHP; PHP los valida y los guarda en MySQL, y responde también en JSON. Además, la pantalla de resultado le pide a un **servicio en Node.js** (puerto 3000) el Informe de Resultado imprimible.
 
 ## 2. Sesión del usuario (`js/sesion.js`)
 
@@ -439,3 +442,63 @@ Con `@media` el diseño se adapta a pantallas chicas: el menú se convierte en u
 }
 ```
 *Archivo: `Frontend/css/styles.css` (líneas 451 a 469)*
+
+## 15. Servicio de informes en Node.js (`servicio-node/`)
+
+Node.js cumple una función propia en el sistema: genera el **Informe de Resultado** (el formulario IR del Cursograma 1) para imprimir o guardar como PDF. No usa paquetes externos, solo el módulo `http` que ya trae Node.js. Se enciende con `node servidor.js` y responde en `http://localhost:3000`.
+
+**Reglas del Índice Eco** (`servicio-node/indice.js`): el servidor vuelve a calcular el índice con las mismas reglas que el navegador, así nadie puede mandar un puntaje falso.
+
+```javascript
+// Asegura que un puntaje sea un número entero entre 0 y 100
+function limitarPuntaje(valor) {
+  const numero = Math.round(Number(valor));
+  if (Number.isNaN(numero)) return 0;
+  return Math.max(0, Math.min(100, numero));
+}
+
+// El Índice Eco es el promedio de energía, agua y residuos
+function calcularIndice(energia, agua, residuos) {
+  return Math.round((limitarPuntaje(energia) + limitarPuntaje(agua) + limitarPuntaje(residuos)) / 3);
+}
+
+// Bajo: 0 a 39 · Medio: 40 a 69 · Alto: 70 a 100
+function calcularNivel(indice) {
+  if (indice >= 70) return 'Alto';
+  if (indice >= 40) return 'Medio';
+  return 'Bajo';
+}
+```
+
+**Rutas del servidor** (`servicio-node/servidor.js`): `GET /api/estado` informa si el servicio funciona y `POST /api/informe` recibe el diagnóstico en JSON y devuelve el informe en HTML. Cualquier otra ruta responde 404, y si los datos no son JSON válido responde 400.
+
+```javascript
+const servidor = http.createServer(async function (pedido, respuesta) {
+  permisosCORS(respuesta);
+
+  if (pedido.method === 'OPTIONS') {
+    respuesta.writeHead(204);
+    return respuesta.end();
+  }
+
+  if (pedido.method === 'GET' && pedido.url === '/api/estado') {
+    return enviarJSON(respuesta, 200, { ok: true, servicio: 'EcoControl - informes', version: '1.0.0' });
+  }
+
+  if (pedido.method === 'POST' && pedido.url === '/api/informe') {
+    try {
+      const datos = await leerCuerpo(pedido);
+      const html = generarInforme(datos);
+      respuesta.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      return respuesta.end(html);
+    } catch (error) {
+      return enviarJSON(respuesta, 400, { ok: false, mensaje: error.message });
+    }
+  }
+
+  enviarJSON(respuesta, 404, { ok: false, mensaje: 'Ruta no encontrada.' });
+});
+```
+*Archivo: `servicio-node/servidor.js` (líneas 54 a 78)*
+
+**Pruebas automáticas:** `npm test` ejecuta 6 pruebas con el módulo `node:test` (cálculo del índice, niveles, puntajes fuera de rango, protección contra XSS, índice falso y rutas HTTP). Ver [MATRIZ-DE-PRUEBAS.md](MATRIZ-DE-PRUEBAS.md).

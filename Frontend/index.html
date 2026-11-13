@@ -165,6 +165,7 @@
       <p class="mensaje" id="resultadoAviso"></p>
       <div class="botones-fila">
         <a href="#" class="boton boton-borde" data-ir="diagnostico">Repetir diagnóstico</a>
+        <button type="button" class="boton boton-borde" id="botonInforme">Descargar informe</button>
         <a href="#" class="boton" data-ir="panel">Ir a mi panel</a>
       </div>
     </div>
@@ -245,6 +246,7 @@
             <tr><td>Acceso</td><td>Inicio de sesión, registro, recuperación de contraseña, mostrar/ocultar contraseña y cierre de sesión.</td></tr>
             <tr><td>Diagnóstico</td><td>Cuestionario por pasos (tipo de lugar, energía, agua, residuos) con validación.</td></tr>
             <tr><td>Índice Eco</td><td>Puntaje de 0 a 100, nivel (Bajo, Medio, Alto), detalle por área y recomendaciones.</td></tr>
+            <tr><td>Informe de Resultado</td><td>Informe imprimible o en PDF generado por el servicio de Node.js.</td></tr>
             <tr><td>Panel del cliente</td><td>Último índice, recomendaciones e historial de diagnósticos.</td></tr>
             <tr><td>Asesoramiento</td><td>Solicitud de asesoría por área y modalidad.</td></tr>
             <tr><td>Contacto</td><td>Formulario que guarda las consultas.</td></tr>
@@ -252,7 +254,8 @@
           <h4>Tecnologías</h4>
           <table><thead><tr><th>Capa</th><th>Tecnología</th></tr></thead><tbody>
             <tr><td>Frontend</td><td>HTML5, CSS3 y JavaScript (sin frameworks)</td></tr>
-            <tr><td>Backend</td><td>PHP 8 (XAMPP / Apache)</td></tr>
+            <tr><td>Backend</td><td>PHP 8 (XAMPP / Apache): usuarios, diagnósticos, asesorías y contacto</td></tr>
+            <tr><td>Servicio de informes</td><td>Node.js (sin paquetes externos): valida el Índice Eco y genera el Informe de Resultado imprimible</td></tr>
             <tr><td>Base de datos</td><td>MySQL / MariaDB (base <code>ecocontrol</code>)</td></tr>
             <tr><td>Control de versiones</td><td>Git y GitHub</td></tr>
           </tbody></table>
@@ -262,7 +265,8 @@
           <p class="gris">Diagramas del sistema y de su funcionamiento.</p>
           <h4>Arquitectura del sistema</h4>
           <div class="diagrama"><span class="caja">Navegador (HTML, CSS, JS)</span><span class="flecha">→</span><span class="caja">fetch() con JSON</span><span class="flecha">→</span><span class="caja">PHP en Apache (XAMPP)</span><span class="flecha">→</span><span class="caja">MySQL: base ecocontrol</span></div>
-          <p>Si la página se abre sin servidor (doble clic en el archivo), JavaScript guarda los datos en el navegador (localStorage) para poder usar y presentar el sistema igual.</p>
+          <div class="diagrama"><span class="caja">Pantalla de resultado</span><span class="flecha">→</span><span class="caja">fetch() a localhost:3000</span><span class="flecha">→</span><span class="caja">Servicio Node.js (informes)</span><span class="flecha">→</span><span class="caja">Informe de Resultado imprimible</span></div>
+          <p>El sistema tiene dos servicios: PHP guarda y lee los datos en MySQL, y Node.js arma el Informe de Resultado. Si la página se abre sin servidor (doble clic en el archivo), JavaScript guarda los datos en el navegador (localStorage) para poder usar y presentar el sistema igual.</p>
           <h4>Flujo de uso</h4>
           <div class="diagrama"><span class="caja">login.html</span><span class="flecha">→</span><span class="caja">Iniciar sesión / Crear cuenta</span><span class="flecha">→</span><span class="caja">index.html</span><span class="flecha">→</span><span class="caja">Diagnóstico (4 pasos)</span><span class="flecha">→</span><span class="caja">Índice Eco</span><span class="flecha">→</span><span class="caja">Mi panel</span><span class="flecha">→</span><span class="caja">Asesoramiento</span></div>
           <h4>Cálculo del Índice Eco</h4>
@@ -290,6 +294,9 @@
           <h4>Estructura de carpetas</h4>
           <pre>ECOcontrol/
 ├── database/ecocontrol.sql      ← tablas y usuario de prueba
+├── servicio-node/               ← servicio de informes en Node.js
+│   ├── servidor.js · informe.js · indice.js
+│   └── pruebas/servicio.test.js
 └── Frontend/
     ├── login.html  ·  index.html
     ├── css/  styles.css · login.css
@@ -346,6 +353,26 @@ $_SESSION[&#x27;usuario_id&#x27;] = $usuario[&#x27;id&#x27;];</pre>
   recomendaciones TEXT NOT NULL,
   FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );</pre>
+          <h4>Servicio de informes en Node.js (servicio-node/indice.js)</h4>
+          <p>Node.js vuelve a calcular el índice con las mismas reglas que el navegador, así un cliente no puede mandar un puntaje falso. Se enciende con <code>node servidor.js</code> y responde en <code>http://localhost:3000</code>.</p>
+          <pre>// Asegura que un puntaje sea un número entero entre 0 y 100
+function limitarPuntaje(valor) {
+  const numero = Math.round(Number(valor));
+  if (Number.isNaN(numero)) return 0;
+  return Math.max(0, Math.min(100, numero));
+}
+
+// El Índice Eco es el promedio de energía, agua y residuos
+function calcularIndice(energia, agua, residuos) {
+  return Math.round((limitarPuntaje(energia) + limitarPuntaje(agua) + limitarPuntaje(residuos)) / 3);
+}
+
+// Bajo: 0 a 39 · Medio: 40 a 69 · Alto: 70 a 100
+function calcularNivel(indice) {
+  if (indice &gt;= 70) return &#x27;Alto&#x27;;
+  if (indice &gt;= 40) return &#x27;Medio&#x27;;
+  return &#x27;Bajo&#x27;;
+}</pre>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-capturas">
           <h3>Capturas de pantalla</h3>
@@ -358,6 +385,7 @@ $_SESSION[&#x27;usuario_id&#x27;] = $usuario[&#x27;id&#x27;];</pre>
           <figure><img src="img/capturas/06-panel.png" alt="Panel del cliente con el último índice y el historial." loading="lazy"><figcaption>Panel del cliente con el último índice y el historial.</figcaption></figure>
           <figure><img src="img/capturas/07-asesoramiento.png" alt="Ventana para solicitar asesoramiento." loading="lazy"><figcaption>Ventana para solicitar asesoramiento.</figcaption></figure>
           <figure><img src="img/capturas/08-contacto.png" alt="Formulario de contacto." loading="lazy"><figcaption>Formulario de contacto.</figcaption></figure>
+          <figure><img src="img/capturas/10-informe.png" alt="Informe de Resultado generado por Node.js." loading="lazy"><figcaption>Informe de Resultado generado por el servicio de Node.js.</figcaption></figure>
           <figure><img src="img/capturas/09-movil.png" alt="Vista en celular con el menú desplegado." loading="lazy"><figcaption>Vista en celular con el menú desplegado.</figcaption></figure>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-manual">
@@ -369,6 +397,7 @@ $_SESSION[&#x27;usuario_id&#x27;] = $usuario[&#x27;id&#x27;];</pre>
             <li><strong>Olvidé mi contraseña:</strong> ingresá tu correo y tocá <em>Enviar instrucciones</em>.</li>
             <li><strong>Hacer el diagnóstico:</strong> en el menú elegí <em>Diagnóstico</em>. Indicá si es para tu hogar o tu negocio y respondé las preguntas de energía, agua y residuos. Con <em>Volver</em> podés corregir respuestas.</li>
             <li><strong>Ver el resultado:</strong> al terminar aparece tu Índice Eco (0 a 100), el nivel, el puntaje de cada área y las recomendaciones.</li>
+            <li><strong>Descargar el informe:</strong> en la pantalla del resultado tocá <em>Descargar informe</em>; se abre el Informe de Resultado listo para imprimir o guardar como PDF (requiere el servicio de Node.js encendido).</li>
             <li><strong>Mi panel:</strong> muestra tu último índice, sus recomendaciones y el historial con fecha de todos tus diagnósticos.</li>
             <li><strong>Solicitar asesoramiento:</strong> desde <em>Mi panel</em>, elegí el área y la modalidad, escribí qué necesitás y enviá la solicitud.</li>
             <li><strong>Contacto:</strong> tu nombre y correo se completan solos; escribí el asunto y el mensaje.</li>
@@ -472,6 +501,9 @@ $_SESSION[&#x27;usuario_id&#x27;] = $usuario[&#x27;id&#x27;];</pre>
           <h4>Ciclo de atención al cliente</h4>
           <div class="diagrama"><span class="caja">Registro</span><span class="flecha">→</span><span class="caja">Diagnóstico</span><span class="flecha">→</span><span class="caja">Índice Eco y recomendaciones</span><span class="flecha">→</span><span class="caja">Asesoramiento</span><span class="flecha">→</span><span class="caja">Aplicar mejoras</span><span class="flecha">→</span><span class="caja">Nuevo diagnóstico</span></div>
           <p>El cliente repite el diagnóstico y compara su historial en el panel para ver si su Índice Eco mejora.</p>
+          <h4>Matriz de pruebas</h4>
+          <p>Resultado: <strong>34 aprobadas</strong>, 0 fallidas y 1 pendiente de 35 pruebas. Entorno: Google Chrome (escritorio y celular), PHP 8.3 y Node.js 22. La prueba P-35 se realiza en XAMPP con MySQL.</p>
+          <div style="overflow-x:auto"><table class="tabla-pruebas" style="font-size:0.82rem"><thead><tr><th>N.º</th><th>Módulo</th><th>Caso de prueba</th><th>Datos</th><th>Esperado</th><th>Obtenido</th><th>Estado</th></tr></thead><tbody><tr><td>P-01</td><td>Acceso</td><td>Entrar a la aplicación sin haber iniciado sesión</td><td>Abrir index.html directamente</td><td>Redirige a la pantalla de login</td><td>Redirigió a login.html</td><td><strong>Aprobada</strong></td></tr><tr><td>P-02</td><td>Acceso</td><td>Login con correo con formato inválido</td><td>santiago@ / eco123</td><td>Mensaje de correo inválido</td><td>Ingresá un correo electrónico válido.</td><td><strong>Aprobada</strong></td></tr><tr><td>P-03</td><td>Acceso</td><td>Login con contraseña de menos de 6 caracteres</td><td>demo@ecocontrol.com / 123</td><td>Mensaje de mínimo 6 caracteres</td><td>La contraseña debe tener al menos 6 caracteres.</td><td><strong>Aprobada</strong></td></tr><tr><td>P-04</td><td>Acceso</td><td>Login con contraseña incorrecta</td><td>demo@ecocontrol.com / clave999</td><td>Mensaje de contraseña incorrecta</td><td>La contraseña es incorrecta.</td><td><strong>Aprobada</strong></td></tr><tr><td>P-05</td><td>Acceso</td><td>Login con correo no registrado</td><td>nadie@gmail.com / eco123</td><td>Mensaje de cuenta inexistente</td><td>No existe una cuenta con ese correo. Creá una cuenta nueva.</td><td><strong>Aprobada</strong></td></tr><tr><td>P-06</td><td>Acceso</td><td>Mostrar y ocultar la contraseña con el botón del ojo</td><td>Clic dos veces en el ojo</td><td>La contraseña se ve y luego se oculta</td><td>Tipo del campo: text → password</td><td><strong>Aprobada</strong></td></tr><tr><td>P-07</td><td>Acceso</td><td>Recuperar contraseña</td><td>malcorreo y luego demo@ecocontrol.com</td><td>Error con correo inválido; confirmación con correo válido</td><td>«Ingresá un correo electrónico válido.» / «Si el correo está registrado, vas a recibir l…»</td><td><strong>Aprobada</strong></td></tr><tr><td>P-08</td><td>Registro</td><td>Crear cuenta con contraseñas distintas</td><td>secreto1 / secreto2</td><td>Mensaje de contraseñas que no coinciden</td><td>Las contraseñas no coinciden.</td><td><strong>Aprobada</strong></td></tr><tr><td>P-09</td><td>Registro</td><td>Crear cuenta con un correo ya registrado</td><td>demo@ecocontrol.com</td><td>Mensaje de cuenta existente</td><td>Ya existe una cuenta con ese correo.</td><td><strong>Aprobada</strong></td></tr><tr><td>P-10</td><td>Registro</td><td>Crear cuenta con datos correctos</td><td>Santiago / santiago@gmail.com / secreto1</td><td>Crea la cuenta y entra a la aplicación</td><td>Entró a index.html#inicio</td><td><strong>Aprobada</strong></td></tr><tr><td>P-11</td><td>Navegación</td><td>Cada opción del menú muestra su pantalla</td><td>Inicio, Servicios, Diagnóstico, Proyecto, Contacto, Mi panel</td><td>Se ve la pantalla elegida</td><td>6 de 6 pantallas correctas</td><td><strong>Aprobada</strong></td></tr><tr><td>P-12</td><td>Panel</td><td>Panel de un usuario sin diagnósticos</td><td>Usuario recién registrado</td><td>Mensaje «Todavía no hiciste ningún diagnóstico»</td><td>Mensaje visible</td><td><strong>Aprobada</strong></td></tr><tr><td>P-13</td><td>Seguridad</td><td>Nombre con código HTML (intento de XSS)</td><td>&lt;img src=x onerror=alert(1)&gt;Santi</td><td>Se muestra como texto y no se ejecuta</td><td>Texto mostrado: «Hola, &lt;img src=x onerror=alert(1)&gt;Santi»; alertas ejecutadas: 0</td><td><strong>Aprobada</strong></td></tr><tr><td>P-14</td><td>Diagnóstico</td><td>Avanzar sin responder</td><td>Sin elegir opciones</td><td>Mensaje pidiendo responder todo</td><td>Respondé todas las preguntas para continuar.</td><td><strong>Aprobada</strong></td></tr><tr><td>P-15</td><td>Diagnóstico</td><td>Volver al paso anterior conserva las respuestas</td><td>Responder energía, avanzar y volver</td><td>Las 3 respuestas de energía siguen marcadas</td><td>3 respuestas marcadas</td><td><strong>Aprobada</strong></td></tr><tr><td>P-16</td><td>Índice Eco</td><td>Todas las respuestas óptimas</td><td>Mejor opción en las 9 preguntas</td><td>Índice 100, nivel Alto, mensaje de felicitación</td><td>Índice 100, nivel Alto, 1 recomendación</td><td><strong>Aprobada</strong></td></tr><tr><td>P-17</td><td>Índice Eco</td><td>Todas las respuestas desfavorables</td><td>Peor opción en las 9 preguntas</td><td>Índice 2 (energía 10/3, agua 10/3, residuos 0), nivel Bajo, 9 recomendaciones</td><td>Índice 2, nivel Bajo, 9 recomendaciones</td><td><strong>Aprobada</strong></td></tr><tr><td>P-18</td><td>Índice Eco</td><td>Respuestas mixtas</td><td>Energía óptima, agua intermedia, residuos óptimos</td><td>Índice 84 = (100 + 52 + 100) / 3, nivel Alto, 3 recomendaciones de agua</td><td>Índice 84, nivel Alto, 3 recomendaciones</td><td><strong>Aprobada</strong></td></tr><tr><td>P-19</td><td>Diagnóstico</td><td>Guardado del diagnóstico</td><td>Diagnóstico de P-18</td><td>Mensaje de guardado en el historial</td><td>Diagnóstico guardado en tu historial (en este navegador).</td><td><strong>Aprobada</strong></td></tr><tr><td>P-20</td><td>Servicio Node.js</td><td>Descargar informe con el servicio encendido</td><td>Botón «Descargar informe» del resultado P-18</td><td>Abre el Informe de Resultado con índice 84 y nivel Alto</td><td>Informe abierto con índice 84, nivel Alto</td><td><strong>Aprobada</strong></td></tr><tr><td>P-21</td><td>Servicio Node.js</td><td>Descargar informe con el servicio apagado</td><td>Node.js detenido</td><td>Aviso indicando cómo encender el servicio</td><td>El servicio de informes (Node.js) no está encendido. Abrí una terminal…</td><td><strong>Aprobada</strong></td></tr><tr><td>P-22</td><td>Panel</td><td>Historial de diagnósticos</td><td>3 diagnósticos completos (P-16, P-17, P-18)</td><td>3 filas en el historial y último índice 84</td><td>3 filas, último índice 84</td><td><strong>Aprobada</strong></td></tr><tr><td>P-23</td><td>Asesoramiento</td><td>Solicitar asesoramiento</td><td>Primero sin mensaje y luego con mensaje</td><td>Error sin mensaje; confirmación con mensaje</td><td>«Contanos brevemente qué necesitás.» / «¡Solicitud enviada! Te vamos a…»</td><td><strong>Aprobada</strong></td></tr><tr><td>P-24</td><td>Contacto</td><td>Enviar el formulario de contacto</td><td>Primero con asunto y mensaje vacíos, luego completo</td><td>Error con campos vacíos; agradecimiento con datos completos</td><td>«Revisá los campos marcados en rojo.» / «¡Gracias, Santiago! Recib…»</td><td><strong>Aprobada</strong></td></tr><tr><td>P-25</td><td>Documentación</td><td>Pestañas de documentación del proyecto</td><td>Clic en las 10 pestañas</td><td>Cada pestaña muestra su contenido y cargan todas las imágenes</td><td>10 de 10 pestañas; 11 de 11 imágenes cargadas</td><td><strong>Aprobada</strong></td></tr><tr><td>P-26</td><td>Sesión</td><td>Recargar la página con la sesión iniciada</td><td>F5 en la pantalla Proyecto</td><td>Sigue en la aplicación y en la misma pantalla</td><td>Pantalla Proyecto visible: True</td><td><strong>Aprobada</strong></td></tr><tr><td>P-27</td><td>Diseño responsivo</td><td>Menú en pantalla de celular</td><td>Ancho 390 px</td><td>Menú oculto, se abre con ☰ y se cierra al elegir</td><td>Antes: oculto, con ☰: visible, al elegir: oculto</td><td><strong>Aprobada</strong></td></tr><tr><td>P-28</td><td>Diseño responsivo</td><td>Sin desplazamiento horizontal en celular</td><td>Ancho 390 px</td><td>El contenido entra en el ancho de la pantalla</td><td>Ancho del contenido: 390 px</td><td><strong>Aprobada</strong></td></tr><tr><td>P-29</td><td>Sesión</td><td>Cerrar sesión</td><td>Botón Salir y después abrir index.html</td><td>Vuelve al login y no deja entrar sin sesión</td><td>Terminó en login.html</td><td><strong>Aprobada</strong></td></tr><tr><td>P-30</td><td>Acceso</td><td>Login con el usuario de prueba</td><td>demo@ecocontrol.com / eco123</td><td>Entra a la aplicación</td><td>Entró a index.html#inicio</td><td><strong>Aprobada</strong></td></tr><tr><td>P-31</td><td>Backend PHP</td><td>Sintaxis de los archivos PHP</td><td>php -l en los 8 archivos</td><td>Sin errores de sintaxis</td><td>8 de 8 archivos sin errores</td><td><strong>Aprobada</strong></td></tr><tr><td>P-32</td><td>Backend PHP</td><td>Pedido GET a login.php</td><td>GET /php/login.php</td><td>Rechaza el pedido (código 405)</td><td>Código 405</td><td><strong>Aprobada</strong></td></tr><tr><td>P-33</td><td>Backend PHP</td><td>Login con MySQL apagado</td><td>POST a login.php sin base de datos</td><td>Mensaje claro indicando revisar MySQL en XAMPP</td><td>No se pudo conectar a la base de datos. Revisá que MySQL est…</td><td><strong>Aprobada</strong></td></tr><tr><td>P-34</td><td>Servicio Node.js</td><td>Pruebas automáticas del servicio (npm test)</td><td>N-01 a N-06: cálculo, niveles, rangos, XSS, índice falso, rutas HTTP</td><td>6 pruebas aprobadas</td><td>6 aprobadas, 0 fallidas</td><td><strong>Aprobada</strong></td></tr><tr><td>P-35</td><td>Base de datos</td><td>Registro, login y diagnósticos guardados en MySQL</td><td>XAMPP con la base ecocontrol importada</td><td>Los datos se guardan y se leen desde MySQL</td><td>Pendiente: se ejecuta en la computadora con XAMPP</td><td><strong>Pendiente</strong></td></tr></tbody></table></div>
         </article>
       </div>
     </div>

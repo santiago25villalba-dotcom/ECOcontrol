@@ -378,6 +378,8 @@ th { background: var(--suave); color: var(--verde-oscuro); font-family: "Manrope
 .panel-proyecto ul, .panel-proyecto ol { padding-left: 22px; }
 .panel-proyecto li { margin-bottom: 6px; }
 .panel-proyecto table { margin: 10px 0 16px; font-size: 0.95rem; }
+.tabla-pruebas th, .tabla-pruebas td { padding: 8px; vertical-align: top; }
+.tabla-pruebas td:first-child { white-space: nowrap; font-weight: 600; }
 .panel-proyecto pre {
   background: #0F2A1E;
   color: #D7F2E4;

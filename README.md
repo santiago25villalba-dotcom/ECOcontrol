@@ -31,6 +31,7 @@ Objetivos del proyecto
 |------|------------|
 | Frontend | HTML5, CSS3 y JavaScript (sin frameworks) |
 | Backend | PHP 8 |
+| Servicio de informes | Node.js (sin paquetes externos) |
 | Base de datos | MySQL / MariaDB (XAMPP) |
 | Control de versiones | Git y GitHub |
 
@@ -39,6 +40,12 @@ Objetivos del proyecto
 ECOcontrol/
 ├── database/
 │   └── ecocontrol.sql        Tablas y usuario de prueba
+├── docs/                     Código destacado y matriz de pruebas
+├── servicio-node/            Servicio de informes en Node.js
+│   ├── servidor.js           Servidor HTTP (puerto 3000)
+│   ├── informe.js            Arma el Informe de Resultado
+│   ├── indice.js             Reglas del Índice Eco
+│   └── pruebas/              Pruebas automáticas (npm test)
 └── Frontend/
     ├── login.html            Pantalla de acceso (login, registro, recuperar)
     ├── index.html            Aplicación principal
@@ -59,6 +66,14 @@ ECOcontrol/
 
 Los datos de conexión están en `Frontend/php/conexion.php` (por defecto usuario `root` sin contraseña).
 
+### Servicio de informes (Node.js)
+Para usar el botón **Descargar informe** de la pantalla de resultado:
+1. Instalar Node.js (versión 18 o superior) desde nodejs.org.
+2. Abrir una terminal en la carpeta `servicio-node`.
+3. Ejecutar `node servidor.js` (o `npm start`). Queda funcionando en `http://localhost:3000`.
+
+No hace falta `npm install`: el servicio usa solo módulos que ya trae Node.js. Para correr sus pruebas: `npm test`.
+
 ### Opción 2: sin servidor (para mostrar el proyecto)
 Abrir `Frontend/login.html` con doble clic. Todo funciona igual, pero los usuarios y diagnósticos se guardan en el navegador (localStorage) en lugar de MySQL.
 
@@ -68,6 +83,9 @@ Abrir `Frontend/login.html` con doble clic. Todo funciona igual, pero los usuari
 
 ## Código destacado
 Los fragmentos de código más importantes, explicados, están en [docs/CODIGO.md](docs/CODIGO.md).
+
+## Matriz de pruebas
+Las 35 pruebas realizadas, con su resultado, están en [docs/MATRIZ-DE-PRUEBAS.md](docs/MATRIZ-DE-PRUEBAS.md).
 
 ## Autor
 Santiago Villalba
