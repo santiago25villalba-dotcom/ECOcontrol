@@ -26,3 +26,48 @@ Objetivos del proyecto
 - Solicitud de asesorías.
 - Seguimiento de los diagnósticos realizados.
 
+## Tecnologías
+| Capa | Tecnología |
+|------|------------|
+| Frontend | HTML5, CSS3 y JavaScript (sin frameworks) |
+| Backend | PHP 8 |
+| Base de datos | MySQL / MariaDB (XAMPP) |
+| Control de versiones | Git y GitHub |
+
+## Estructura del proyecto
+```
+ECOcontrol/
+├── database/
+│   └── ecocontrol.sql        Tablas y usuario de prueba
+└── Frontend/
+    ├── login.html            Pantalla de acceso (login, registro, recuperar)
+    ├── index.html            Aplicación principal
+    ├── css/                  styles.css, login.css
+    ├── js/                   sesion.js, login.js, app.js
+    ├── img/                  favicon, íconos y capturas de pantalla
+    └── php/                  conexion, login, registro, logout, recuperar,
+                              diagnosticos, asesoramiento, contacto
+```
+
+## Cómo usarlo
+
+### Opción 1: con XAMPP (PHP + MySQL)
+1. Copiar la carpeta del proyecto dentro de `C:\xampp\htdocs\ecocontrol`.
+2. Encender **Apache** y **MySQL** desde el panel de XAMPP.
+3. Entrar a `http://localhost/phpmyadmin`, pestaña **Importar**, y elegir `database/ecocontrol.sql`.
+4. Abrir `http://localhost/ecocontrol/Frontend/login.html`.
+
+Los datos de conexión están en `Frontend/php/conexion.php` (por defecto usuario `root` sin contraseña).
+
+### Opción 2: sin servidor (para mostrar el proyecto)
+Abrir `Frontend/login.html` con doble clic. Todo funciona igual, pero los usuarios y diagnósticos se guardan en el navegador (localStorage) en lugar de MySQL.
+
+### Usuario de prueba
+- Correo: `demo@ecocontrol.com`
+- Contraseña: `eco123`
+
+## Código destacado
+Los fragmentos de código más importantes, explicados, están en [docs/CODIGO.md](docs/CODIGO.md).
+
+## Autor
+Santiago Villalba

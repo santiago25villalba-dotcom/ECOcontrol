@@ -216,62 +216,254 @@
         <article class="tarjeta panel-proyecto activo" id="proy-presentacion">
           <h3>Presentación de la consultora</h3>
           <p class="gris">Quiénes somos, misión y servicios de la consultora.</p>
-          <!-- Pegá acá el contenido de "Presentación de la consultora" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <p>EcoControl es una consultora de eficiencia y sustentabilidad ambiental orientada a hogares y pequeños negocios. Mediante un diagnóstico simple medimos cómo se usan la energía y el agua y cómo se gestionan los residuos, y lo resumimos en un <strong>Índice Eco de 0 a 100</strong> acompañado de recomendaciones concretas.</p>
+          <h4>Misión</h4>
+          <p>Hacer que cuidar el ambiente sea fácil de medir y de lograr, con herramientas claras y acompañamiento profesional.</p>
+          <h4>Visión</h4>
+          <p>Ser la consultora de referencia para que familias y comercios reduzcan su impacto ambiental y sus gastos de servicios.</p>
+          <h4>Servicios</h4>
+          <table><thead><tr><th>Servicio</th><th>Qué incluye</th></tr></thead><tbody>
+            <tr><td>Eficiencia energética</td><td>Análisis del consumo eléctrico, iluminación, climatización y aparatos en espera.</td></tr>
+            <tr><td>Uso responsable del agua</td><td>Detección de pérdidas y hábitos de consumo.</td></tr>
+            <tr><td>Gestión de residuos</td><td>Separación, compostaje y reducción de plásticos.</td></tr>
+            <tr><td>Planes de mejora ambiental</td><td>Plan paso a paso según el Índice Eco y seguimiento en el panel.</td></tr>
+          </tbody></table>
+          <h4>Público objetivo</h4>
+          <ul><li>Hogares que quieren bajar sus facturas y cuidar el ambiente.</li><li>Pequeños negocios (comercios, oficinas, emprendimientos) que buscan mejorar su imagen sustentable.</li></ul>
+          <p><strong>Responsable del proyecto:</strong> Santiago Villalba.</p>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-cliente">
           <h3>Proyecto al cliente</h3>
           <p class="gris">Descripción del proyecto presentado al cliente.</p>
-          <!-- Pegá acá el contenido de "Proyecto al cliente" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <p><strong>Nombre del sistema:</strong> EcoControl – Sistema web de diagnóstico y asesoramiento ambiental.</p>
+          <h4>Problema que resuelve</h4>
+          <p>Muchas personas quieren cuidar el ambiente pero no saben cuánto impacto generan ni por dónde empezar. No existe una herramienta simple que mida sus hábitos y les diga qué mejorar primero.</p>
+          <h4>Solución propuesta</h4>
+          <p>Una aplicación web donde el cliente se registra, responde un diagnóstico de 4 pasos y obtiene su Índice Eco con recomendaciones. Cada diagnóstico queda guardado en su panel para ver la evolución, y desde ahí puede pedir asesoramiento a la consultora.</p>
+          <h4>Alcance (funcionalidades)</h4>
+          <table><thead><tr><th>Módulo</th><th>Descripción</th></tr></thead><tbody>
+            <tr><td>Acceso</td><td>Inicio de sesión, registro, recuperación de contraseña, mostrar/ocultar contraseña y cierre de sesión.</td></tr>
+            <tr><td>Diagnóstico</td><td>Cuestionario por pasos (tipo de lugar, energía, agua, residuos) con validación.</td></tr>
+            <tr><td>Índice Eco</td><td>Puntaje de 0 a 100, nivel (Bajo, Medio, Alto), detalle por área y recomendaciones.</td></tr>
+            <tr><td>Panel del cliente</td><td>Último índice, recomendaciones e historial de diagnósticos.</td></tr>
+            <tr><td>Asesoramiento</td><td>Solicitud de asesoría por área y modalidad.</td></tr>
+            <tr><td>Contacto</td><td>Formulario que guarda las consultas.</td></tr>
+          </tbody></table>
+          <h4>Tecnologías</h4>
+          <table><thead><tr><th>Capa</th><th>Tecnología</th></tr></thead><tbody>
+            <tr><td>Frontend</td><td>HTML5, CSS3 y JavaScript (sin frameworks)</td></tr>
+            <tr><td>Backend</td><td>PHP 8 (XAMPP / Apache)</td></tr>
+            <tr><td>Base de datos</td><td>MySQL / MariaDB (base <code>ecocontrol</code>)</td></tr>
+            <tr><td>Control de versiones</td><td>Git y GitHub</td></tr>
+          </tbody></table>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-diagramas">
           <h3>Diagramas</h3>
           <p class="gris">Diagramas del sistema y de su funcionamiento.</p>
-          <!-- Pegá acá el contenido de "Diagramas" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <h4>Arquitectura del sistema</h4>
+          <div class="diagrama"><span class="caja">Navegador (HTML, CSS, JS)</span><span class="flecha">→</span><span class="caja">fetch() con JSON</span><span class="flecha">→</span><span class="caja">PHP en Apache (XAMPP)</span><span class="flecha">→</span><span class="caja">MySQL: base ecocontrol</span></div>
+          <p>Si la página se abre sin servidor (doble clic en el archivo), JavaScript guarda los datos en el navegador (localStorage) para poder usar y presentar el sistema igual.</p>
+          <h4>Flujo de uso</h4>
+          <div class="diagrama"><span class="caja">login.html</span><span class="flecha">→</span><span class="caja">Iniciar sesión / Crear cuenta</span><span class="flecha">→</span><span class="caja">index.html</span><span class="flecha">→</span><span class="caja">Diagnóstico (4 pasos)</span><span class="flecha">→</span><span class="caja">Índice Eco</span><span class="flecha">→</span><span class="caja">Mi panel</span><span class="flecha">→</span><span class="caja">Asesoramiento</span></div>
+          <h4>Cálculo del Índice Eco</h4>
+          <div class="diagrama"><span class="caja">Respuestas (0 a 100 c/u)</span><span class="flecha">→</span><span class="caja">Promedio por área</span><span class="flecha">→</span><span class="caja">(Energía + Agua + Residuos) ÷ 3</span><span class="flecha">→</span><span class="caja">Nivel: Bajo &lt; 40 · Medio 40–69 · Alto ≥ 70</span></div>
+          <h4>Modelo de datos (relaciones)</h4>
+          <table><thead><tr><th>Tabla</th><th>Campos principales</th><th>Relación</th></tr></thead><tbody>
+            <tr><td>usuarios</td><td>id, nombre, email (único), clave (hash), rol, creado_en</td><td>—</td></tr>
+            <tr><td>diagnosticos</td><td>id, usuario_id, fecha, tipo, indice, nivel, energia, agua, residuos, recomendaciones</td><td>N a 1 con usuarios</td></tr>
+            <tr><td>asesorias</td><td>id, usuario_id, area, modalidad, telefono, mensaje, estado, fecha</td><td>N a 1 con usuarios</td></tr>
+            <tr><td>recuperaciones</td><td>id, usuario_id, token, vence, usado</td><td>N a 1 con usuarios</td></tr>
+            <tr><td>contactos</td><td>id, nombre, email, asunto, mensaje, fecha</td><td>Independiente</td></tr>
+          </tbody></table>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-codigo">
           <h3>Código</h3>
           <p class="gris">Fragmentos y explicación del código desarrollado.</p>
-          <!-- Pegá acá el contenido de "Código" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <h4>Estructura de carpetas</h4>
+          <pre>ECOcontrol/
+├── database/ecocontrol.sql      ← tablas y usuario de prueba
+└── Frontend/
+    ├── login.html  ·  index.html
+    ├── css/  styles.css · login.css
+    ├── js/   sesion.js · login.js · app.js
+    ├── img/  favicon, íconos y capturas
+    └── php/  conexion · login · registro · logout · recuperar
+              diagnosticos · asesoramiento · contacto</pre>
+          <h4>Cálculo del Índice Eco (js/app.js)</h4>
+          <pre>function calcularNivel(indice) {
+  if (indice &gt;= 70) return &#x27;Alto&#x27;;
+  if (indice &gt;= 40) return &#x27;Medio&#x27;;
+  return &#x27;Bajo&#x27;;
+}
+
+// Cada área vale el promedio de sus preguntas (0 a 100)
+// El Índice Eco es el promedio de energía, agua y residuos
+const indice = Math.round((areas.energia + areas.agua + areas.residuos) / 3);</pre>
+          <h4>Comunicación con el servidor (js/sesion.js)</h4>
+          <pre>async function llamarPHP(url, datos) {
+  if (!window.location.protocol.startsWith(&#x27;http&#x27;)) return null; // sin servidor
+  try {
+    const respuesta = await fetch(url, {
+      method: &#x27;POST&#x27;,
+      headers: { &#x27;Content-Type&#x27;: &#x27;application/json&#x27; },
+      body: JSON.stringify(datos)
+    });
+    return await respuesta.json();
+  } catch (error) {
+    return null; // se usa el modo local (localStorage)
+  }
+}</pre>
+          <h4>Inicio de sesión seguro (php/login.php)</h4>
+          <p>Se usan consultas preparadas (evitan la inyección SQL) y <code>password_verify</code> para comparar con la contraseña encriptada.</p>
+          <pre>$consulta = $conexion-&gt;prepare(&#x27;SELECT id, nombre, email, clave FROM usuarios WHERE email = ?&#x27;);
+$consulta-&gt;bind_param(&#x27;s&#x27;, $email);
+$consulta-&gt;execute();
+$usuario = $consulta-&gt;get_result()-&gt;fetch_assoc();
+
+if (!$usuario || !password_verify($clave, $usuario[&#x27;clave&#x27;])) {
+    responder([&#x27;ok&#x27; =&gt; false, &#x27;mensaje&#x27; =&gt; &#x27;El correo o la contraseña son incorrectos.&#x27;], 401);
+}
+$_SESSION[&#x27;usuario_id&#x27;] = $usuario[&#x27;id&#x27;];</pre>
+          <h4>Tabla de diagnósticos (database/ecocontrol.sql)</h4>
+          <pre>CREATE TABLE diagnosticos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  tipo ENUM(&#x27;Hogar&#x27;, &#x27;Negocio&#x27;) NOT NULL,
+  indice TINYINT UNSIGNED NOT NULL,
+  nivel ENUM(&#x27;Bajo&#x27;, &#x27;Medio&#x27;, &#x27;Alto&#x27;) NOT NULL,
+  energia TINYINT UNSIGNED NOT NULL,
+  agua TINYINT UNSIGNED NOT NULL,
+  residuos TINYINT UNSIGNED NOT NULL,
+  recomendaciones TEXT NOT NULL,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);</pre>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-capturas">
           <h3>Capturas de pantalla</h3>
           <p class="gris">Imágenes de las pantallas de la aplicación.</p>
-          <!-- Pegá acá el contenido de "Capturas de pantalla" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <figure><img src="img/capturas/01-login.png" alt="Pantalla de inicio de sesión." loading="lazy"><figcaption>Pantalla de inicio de sesión.</figcaption></figure>
+          <figure><img src="img/capturas/02-registro.png" alt="Creación de una cuenta nueva." loading="lazy"><figcaption>Creación de una cuenta nueva.</figcaption></figure>
+          <figure><img src="img/capturas/03-inicio.png" alt="Página principal después de iniciar sesión." loading="lazy"><figcaption>Página principal después de iniciar sesión.</figcaption></figure>
+          <figure><img src="img/capturas/04-diagnostico.png" alt="Diagnóstico ambiental: paso de energía." loading="lazy"><figcaption>Diagnóstico ambiental: paso de energía.</figcaption></figure>
+          <figure><img src="img/capturas/05-resultado.png" alt="Resultado con el Índice Eco, áreas y recomendaciones." loading="lazy"><figcaption>Resultado con el Índice Eco, áreas y recomendaciones.</figcaption></figure>
+          <figure><img src="img/capturas/06-panel.png" alt="Panel del cliente con el último índice y el historial." loading="lazy"><figcaption>Panel del cliente con el último índice y el historial.</figcaption></figure>
+          <figure><img src="img/capturas/07-asesoramiento.png" alt="Ventana para solicitar asesoramiento." loading="lazy"><figcaption>Ventana para solicitar asesoramiento.</figcaption></figure>
+          <figure><img src="img/capturas/08-contacto.png" alt="Formulario de contacto." loading="lazy"><figcaption>Formulario de contacto.</figcaption></figure>
+          <figure><img src="img/capturas/09-movil.png" alt="Vista en celular con el menú desplegado." loading="lazy"><figcaption>Vista en celular con el menú desplegado.</figcaption></figure>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-manual">
           <h3>Manual de usuario</h3>
           <p class="gris">Guía paso a paso para usar la aplicación.</p>
-          <!-- Pegá acá el contenido de "Manual de usuario" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <ol>
+            <li><strong>Entrar al sistema:</strong> abrí <code>login.html</code>. Escribí tu correo y tu contraseña y tocá <em>Iniciar sesión</em>. Con el ícono del ojo podés ver lo que escribiste.</li>
+            <li><strong>Crear una cuenta:</strong> tocá <em>Crear una cuenta</em>, completá nombre, correo y contraseña (mínimo 6 caracteres, repetida igual) y tocá <em>Registrarme</em>. Entrás automáticamente.</li>
+            <li><strong>Olvidé mi contraseña:</strong> ingresá tu correo y tocá <em>Enviar instrucciones</em>.</li>
+            <li><strong>Hacer el diagnóstico:</strong> en el menú elegí <em>Diagnóstico</em>. Indicá si es para tu hogar o tu negocio y respondé las preguntas de energía, agua y residuos. Con <em>Volver</em> podés corregir respuestas.</li>
+            <li><strong>Ver el resultado:</strong> al terminar aparece tu Índice Eco (0 a 100), el nivel, el puntaje de cada área y las recomendaciones.</li>
+            <li><strong>Mi panel:</strong> muestra tu último índice, sus recomendaciones y el historial con fecha de todos tus diagnósticos.</li>
+            <li><strong>Solicitar asesoramiento:</strong> desde <em>Mi panel</em>, elegí el área y la modalidad, escribí qué necesitás y enviá la solicitud.</li>
+            <li><strong>Contacto:</strong> tu nombre y correo se completan solos; escribí el asunto y el mensaje.</li>
+            <li><strong>Salir:</strong> tocá <em>Salir</em> en el menú para cerrar la sesión y volver al login.</li>
+          </ol>
+          <h4>Cómo interpretar el Índice Eco</h4>
+          <table><thead><tr><th>Puntaje</th><th>Nivel</th><th>Significado</th></tr></thead><tbody>
+            <tr><td>70 a 100</td><td>Alto</td><td>Hábitos muy sustentables. Mantenerlos.</td></tr>
+            <tr><td>40 a 69</td><td>Medio</td><td>Buen punto de partida, con mejoras posibles.</td></tr>
+            <tr><td>0 a 39</td><td>Bajo</td><td>Conviene aplicar las recomendaciones y pedir asesoramiento.</td></tr>
+          </tbody></table>
+          <p class="gris"><strong>Usuario de prueba:</strong> demo@ecocontrol.com · contraseña eco123</p>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-costos">
           <h3>Costos</h3>
           <p class="gris">Detalle de costos del proyecto.</p>
-          <!-- Pegá acá el contenido de "Costos" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <p>Estimación del costo de desarrollo y puesta en marcha. Las horas salen del trabajo real por módulo; el valor por hora y los servicios son <strong>valores de referencia</strong> que se deben actualizar con presupuestos vigentes al momento de presentar.</p>
+          <h4>Horas de desarrollo</h4>
+          <table><thead><tr><th>Tarea</th><th>Horas</th></tr></thead><tbody>
+            <tr><td>Análisis y relevamiento</td><td>10</td></tr>
+            <tr><td>Diseño UI/UX (pantallas, paleta, logo)</td><td>16</td></tr>
+            <tr><td>Maquetado HTML y CSS responsivo</td><td>24</td></tr>
+            <tr><td>Programación JavaScript (login, diagnóstico, panel)</td><td>26</td></tr>
+            <tr><td>Backend PHP y base de datos MySQL</td><td>22</td></tr>
+            <tr><td>Pruebas y correcciones</td><td>12</td></tr>
+            <tr><td>Documentación y manual</td><td>10</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>120 h</strong></td></tr>
+          </tbody></table>
+          <h4>Presupuesto</h4>
+          <table><thead><tr><th>Concepto</th><th>Cálculo</th><th>Tipo</th></tr></thead><tbody>
+            <tr><td>Desarrollo</td><td>120 h × valor hora del desarrollador junior</td><td>Pago único</td></tr>
+            <tr><td>Dominio .com.ar (NIC Argentina)</td><td>Arancel anual vigente de NIC.ar</td><td>Anual</td></tr>
+            <tr><td>Hosting con PHP y MySQL</td><td>Plan básico de hosting compartido</td><td>Mensual / anual</td></tr>
+            <tr><td>Certificado SSL (HTTPS)</td><td>Let's Encrypt (incluido en la mayoría de los hostings)</td><td>Sin costo</td></tr>
+            <tr><td>Mantenimiento</td><td>4 h por mes × valor hora</td><td>Mensual</td></tr>
+          </tbody></table>
+          <h4>Herramientas utilizadas (sin costo)</h4>
+          <ul><li>Visual Studio Code, XAMPP, Git y GitHub, Google Fonts (Inter y Manrope).</li></ul>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-cultura">
           <h3>Cultura organizacional</h3>
           <p class="gris">Valores, organización y forma de trabajo del equipo.</p>
-          <!-- Pegá acá el contenido de "Cultura organizacional" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <h4>Valores</h4>
+          <table><thead><tr><th>Valor</th><th>Cómo se aplica</th></tr></thead><tbody>
+            <tr><td>Compromiso ambiental</td><td>Cada recomendación busca un impacto real y medible.</td></tr>
+            <tr><td>Claridad</td><td>Explicamos los resultados con lenguaje simple, sin tecnicismos.</td></tr>
+            <tr><td>Honestidad</td><td>Mostramos el puntaje real aunque sea bajo y cuidamos los datos del cliente.</td></tr>
+            <tr><td>Mejora continua</td><td>Medimos, aplicamos cambios y volvemos a medir.</td></tr>
+            <tr><td>Trabajo en equipo</td><td>Consultores y desarrolladores comparten objetivos y revisan el trabajo juntos.</td></tr>
+          </tbody></table>
+          <h4>Organización</h4>
+          <table><thead><tr><th>Rol</th><th>Responsabilidades</th></tr></thead><tbody>
+            <tr><td>Dirección del proyecto</td><td>Planificación, contacto con clientes y presupuesto.</td></tr>
+            <tr><td>Desarrollo web</td><td>Frontend, backend, base de datos y pruebas.</td></tr>
+            <tr><td>Consultoría ambiental</td><td>Preguntas del diagnóstico, recomendaciones y asesorías.</td></tr>
+          </tbody></table>
+          <p>En este proyecto escolar los roles los cumple Santiago Villalba.</p>
+          <h4>Forma de trabajo</h4>
+          <ul><li>Objetivos semanales y revisión del avance.</li><li>Código versionado en GitHub, con commits descriptivos.</li><li>Trabajo digital para reducir el uso de papel.</li></ul>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-seguridad">
           <h3>Seguridad e higiene</h3>
           <p class="gris">Normas de seguridad e higiene aplicadas.</p>
-          <!-- Pegá acá el contenido de "Seguridad e higiene" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <p>Normas aplicadas al puesto de trabajo con computadora, según la Ley 19.587 de Higiene y Seguridad en el Trabajo y la Resolución SRT 295/03 (ergonomía).</p>
+          <h4>Puesto de trabajo</h4>
+          <ul>
+            <li>Pantalla a la altura de los ojos y a una distancia de 50 a 70 cm.</li>
+            <li>Silla regulable, espalda apoyada y pies en el piso o en un apoyapiés.</li>
+            <li>Muñecas rectas al usar teclado y mouse.</li>
+            <li>Buena iluminación, sin reflejos en la pantalla.</li>
+            <li>Pausas activas de 5 a 10 minutos cada hora y regla 20-20-20 para la vista (cada 20 minutos, mirar a 6 metros durante 20 segundos).</li>
+          </ul>
+          <h4>Seguridad eléctrica y del ambiente</h4>
+          <ul>
+            <li>Instalación con descarga a tierra y disyuntor; no sobrecargar zapatillas.</li>
+            <li>Cables ordenados para evitar tropiezos; matafuego tipo ABC accesible.</li>
+            <li>Equipos apagados al terminar la jornada (también ahorra energía).</li>
+          </ul>
+          <h4>Seguridad informática del sistema</h4>
+          <table><thead><tr><th>Riesgo</th><th>Medida aplicada</th></tr></thead><tbody>
+            <tr><td>Robo de contraseñas</td><td>Se guardan encriptadas con <code>password_hash</code>.</td></tr>
+            <tr><td>Inyección SQL</td><td>Consultas preparadas con <code>mysqli</code>.</td></tr>
+            <tr><td>Código malicioso en textos (XSS)</td><td>JavaScript muestra los datos con <code>textContent</code>.</td></tr>
+            <tr><td>Acceso sin permiso</td><td>Sesiones de PHP: cada usuario solo ve sus diagnósticos.</td></tr>
+            <tr><td>Averiguar correos registrados</td><td>"Recuperar contraseña" responde igual exista o no la cuenta.</td></tr>
+            <tr><td>Pérdida de datos</td><td>Copias de seguridad de la base y del código en GitHub.</td></tr>
+          </tbody></table>
         </article>
         <article class="tarjeta panel-proyecto" id="proy-ciclo">
           <h3>Ciclo de trabajo</h3>
           <p class="gris">Etapas y organización del trabajo del proyecto.</p>
-          <!-- Pegá acá el contenido de "Ciclo de trabajo" -->
-          <div class="vacio">Espacio listo para el contenido de esta sección.</div>
+          <p>Se trabajó con un <strong>modelo incremental</strong>: el sistema se construyó por partes, y cada parte se probó antes de pasar a la siguiente.</p>
+          <table><thead><tr><th>Etapa</th><th>Actividades</th><th>Resultado</th></tr></thead><tbody>
+            <tr><td>1. Análisis</td><td>Definir el problema, el público y las funcionalidades.</td><td>Lista de requisitos.</td></tr>
+            <tr><td>2. Diseño</td><td>Paleta, tipografías, logo, pantallas y base de datos.</td><td>Diseño de pantallas y modelo de datos.</td></tr>
+            <tr><td>3. Desarrollo</td><td>HTML y CSS, JavaScript, PHP y MySQL.</td><td>Sistema funcionando.</td></tr>
+            <tr><td>4. Pruebas</td><td>Probar cada botón, formulario y validación, en PC y en celular.</td><td>Errores corregidos.</td></tr>
+            <tr><td>5. Implementación</td><td>Instalar en XAMPP / hosting e importar la base.</td><td>Sistema en uso.</td></tr>
+            <tr><td>6. Mantenimiento</td><td>Mejoras y corrección de errores nuevos.</td><td>Nuevas versiones en GitHub.</td></tr>
+          </tbody></table>
+          <h4>Ciclo de atención al cliente</h4>
+          <div class="diagrama"><span class="caja">Registro</span><span class="flecha">→</span><span class="caja">Diagnóstico</span><span class="flecha">→</span><span class="caja">Índice Eco y recomendaciones</span><span class="flecha">→</span><span class="caja">Asesoramiento</span><span class="flecha">→</span><span class="caja">Aplicar mejoras</span><span class="flecha">→</span><span class="caja">Nuevo diagnóstico</span></div>
+          <p>El cliente repite el diagnóstico y compara su historial en el panel para ver si su Índice Eco mejora.</p>
         </article>
       </div>
     </div>
