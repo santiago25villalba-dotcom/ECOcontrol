@@ -10,7 +10,7 @@ Todo el sistema es un único proceso que intercambia datos con el **Cliente** y 
 
 | Entidad | Datos que envía al sistema | Datos que recibe del sistema |
 |---|---|---|
-| Cliente | Datos de registro e inicio de sesión, respuestas del diagnóstico, solicitud de asesoramiento, mensaje de contacto, pedido de nueva contraseña | Índice Eco y recomendaciones, Informe de Resultado, historial, enlace de recuperación, confirmaciones |
+| Cliente | Datos de registro e inicio de sesión, respuestas del diagnóstico, solicitud de asesoramiento, mensaje de contacto, pedido de nueva contraseña | Índice Eco y recomendaciones, Informe de Resultado, historial de diagnósticos, sesión iniciada, enlace de recuperación |
 | Titular | Datos de inicio de sesión, cambio de estado de solicitudes | Totales, solicitudes de asesoramiento, clientes y su Índice Eco, mensajes de contacto |
 
 ## Nivel 1 – Procesos principales
@@ -26,6 +26,8 @@ Todo el sistema es un único proceso que intercambia datos con el **Cliente** y 
 | 5 | Gestionar asesoramientos | Recibe la solicitud de asesoramiento del cliente. | D3 Asesorías | JavaScript + PHP (asesoramiento.php) |
 | 6 | Atender contactos | Recibe y guarda los mensajes del formulario de contacto. | D4 Contactos | JavaScript + PHP (contacto.php) |
 | 7 | Administrar consultora | Muestra al Titular los totales, las solicitudes, los clientes y los mensajes, y cambia el estado de las solicitudes. | D1, D2, D3 y D4 | JavaScript + PHP (admin.php) |
+
+**Balanceo:** cada flujo que entra o sale del sistema en el nivel 0 aparece también en el nivel 1 (por ejemplo, el inicio de sesión del Titular llega al proceso 1 y el historial sale del proceso 3).
 
 ## Almacenes de datos
 
