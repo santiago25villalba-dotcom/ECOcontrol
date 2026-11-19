@@ -1,6 +1,6 @@
 # EcoControl – Matriz de pruebas
 
-Pruebas realizadas el 13/11/2026 sobre la versión publicada en GitHub. Resultado: **42 aprobadas**, **0 fallidas** y **1 pendiente** de un total de 43.
+Pruebas realizadas el 13/11/2026 sobre la versión publicada en GitHub y ampliadas el 19/11/2026 con la razón social, el local, el método de pago simulado y la privacidad (P-44 a P-52). Resultado: **51 aprobadas**, **0 fallidas** y **1 pendiente** de un total de 52.
 
 **Entorno:** navegador Google Chrome (escritorio 1280 px y celular 390 px), PHP 8.3 y Node.js 22. Las pruebas de la interfaz se ejecutaron en modo local (sin servidor); las de PHP, con el servidor de PHP sin base de datos. La prueba con MySQL queda pendiente para ejecutarse en XAMPP.
 
@@ -36,7 +36,7 @@ Pruebas realizadas el 13/11/2026 sobre la versión publicada en GitHub. Resultad
 | P-28 | Diseño responsivo | Sin desplazamiento horizontal en celular | Ancho 390 px | El contenido entra en el ancho de la pantalla | Ancho del contenido: 390 px | Aprobada |
 | P-29 | Sesión | Cerrar sesión | Botón Salir y después abrir index.html | Vuelve al login y no deja entrar sin sesión | Terminó en login.html | Aprobada |
 | P-30 | Acceso | Login con el usuario de prueba | demo@ecocontrol.com / eco123 | Entra a la aplicación | Entró a index.html#inicio | Aprobada |
-| P-31 | Backend PHP | Sintaxis de los archivos PHP | php -l en los 10 archivos | Sin errores de sintaxis | 10 de 10 archivos sin errores | Aprobada |
+| P-31 | Backend PHP | Sintaxis de los archivos PHP | php -l en los 11 archivos | Sin errores de sintaxis | 11 de 11 archivos sin errores | Aprobada |
 | P-32 | Backend PHP | Pedido GET a login.php | GET /php/login.php | Rechaza el pedido (código 405) | Código 405 | Aprobada |
 | P-33 | Backend PHP | Login con MySQL apagado | POST a login.php sin base de datos | Mensaje claro indicando revisar MySQL en XAMPP | No se pudo conectar a la base de datos. Revisá que MySQL est… | Aprobada |
 | P-34 | Servicio Node.js | Pruebas automáticas del servicio (npm test) | N-01 a N-06: cálculo, niveles, rangos, XSS, índice falso, rutas HTTP | 6 pruebas aprobadas | 6 aprobadas, 0 fallidas | Aprobada |
@@ -49,6 +49,15 @@ Pruebas realizadas el 13/11/2026 sobre la versión publicada en GitHub. Resultad
 | P-41 | Recuperar contraseña | Iniciar sesión después del cambio | Contraseña vieja eco123 y nueva nueva12 | La vieja no funciona y la nueva sí | Vieja: «La contraseña es incorrecta.»; nueva: entró a la aplicación | Aprobada |
 | P-42 | Recuperar contraseña | Usar dos veces el mismo enlace | Enlace ya usado en P-40 | Rechaza el enlace | El enlace venció o ya fue usado. Pedí uno nuevo desde "Olvidé mi contraseña". | Aprobada |
 | P-43 | Diseño responsivo | Menú completo del Titular en todos los anchos | Anchos de 380 a 1290 px (cada 10 px) | Nunca aparece desplazamiento horizontal | Sin desborde en ningún ancho | Aprobada |
+| P-44 | Razón social | Barra con «ECOControl S.R.L.» | Abrir login.html y la aplicación | La barra superior muestra la razón social en ambas pantallas | Barra visible en el login y en la aplicación | Aprobada |
+| P-45 | Local | Local de la empresa visible | Pie de página y pantalla Contacto | Se muestra el local en los dos lugares | «Local: Buenos Aires, Argentina» en el pie y «Nuestro local» en Contacto | Aprobada |
+| P-46 | Pago simulado | Métodos y monto según la modalidad | Abrir «Solicitar asesoramiento» y cambiar de modalidad | 4 métodos de pago; el total cambia con la modalidad | 4 métodos; Videollamada $ 25.000, Visita presencial $ 45.000, Por correo $ 12.000 | Aprobada |
+| P-47 | Pago simulado | Ventana alcanzable en pantallas bajas | Pantalla de 700 px de alto | El botón «Enviar solicitud» se puede alcanzar con el desplazamiento | Botón visible al desplazar la ventana | Aprobada |
+| P-48 | Pago simulado | Estado del pago según el método | Transferencia bancaria y luego Mercado Pago | Transferencia: pago pendiente; Mercado Pago: pago aprobado; ambos con referencia ECO-XXXXXXXX | Transferencia «Pago pendiente»; Mercado Pago «Pago aprobado»; referencia generada | Aprobada |
+| P-49 | Pago simulado | El cliente ve sus pagos | Panel del cliente después de las dos solicitudes | La tabla «Mis solicitudes de asesoramiento» muestra método, monto, estado de pago y referencia | 2 filas con método, monto, estado y referencia | Aprobada |
+| P-50 | Privacidad | Ventana «Privacidad y términos» | Enlace del pie de página | Se abre y se cierra con «Entendido» | Se abrió y se cerró | Aprobada |
+| P-51 | Panel del Titular | El Titular ve los pagos | admin@ecocontrol.com / admin123 | La tabla de solicitudes muestra método, monto y estado del pago | Transferencia pendiente y Mercado Pago aprobado, con sus montos | Aprobada |
+| P-52 | General | Sin errores de JavaScript | Recorrido completo de P-44 a P-51 | 0 errores en la consola | 0 errores | Aprobada |
 
 ## Cómo repetir las pruebas
 

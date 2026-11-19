@@ -23,7 +23,7 @@ Todo el sistema es un único proceso que intercambia datos con el **Cliente** y 
 | 2 | Realizar diagnóstico | Muestra las preguntas por pasos y controla que estén todas respondidas. | — | JavaScript (app.js) |
 | 3 | Calcular Índice Eco | Calcula el puntaje de cada área, el Índice Eco, el nivel y las recomendaciones, y guarda el diagnóstico. | D2 Diagnósticos | JavaScript + PHP (diagnosticos.php) |
 | 4 | Generar informe | Arma el Informe de Resultado imprimible y vuelve a calcular el índice para que no se pueda falsear. | — | Node.js (servicio-node) |
-| 5 | Gestionar asesoramientos | Recibe la solicitud de asesoramiento del cliente. | D3 Asesorías | JavaScript + PHP (asesoramiento.php) |
+| 5 | Gestionar asesoramientos | Recibe la solicitud de asesoramiento del cliente junto con el pago simulado (el servidor define el monto y genera la referencia). | D3 Asesorías | JavaScript + PHP (asesoramiento.php) |
 | 6 | Atender contactos | Recibe y guarda los mensajes del formulario de contacto. | D4 Contactos | JavaScript + PHP (contacto.php) |
 | 7 | Administrar consultora | Muestra al Titular los totales, las solicitudes, los clientes y los mensajes, y cambia el estado de las solicitudes. | D1, D2, D3 y D4 | JavaScript + PHP (admin.php) |
 

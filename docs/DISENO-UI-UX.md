@@ -33,6 +33,9 @@ Contraste medido según WCAG (mínimo recomendado para texto normal: 4,5:1).
 - **Resultado visual:** medidor circular, nivel con color y una barra por área.
 - **Mensajes claros** en cada formulario; los campos con error se marcan en rojo.
 - **Botón del ojo** para ver la contraseña.
+- **Barra superior** con la razón social (ECOControl S.R.L.), el rubro y el local de la empresa, visible en todas las pantallas.
+- **Pago simulado** dentro de la ventana de asesoramiento: el cliente elige el método, ve el total antes de enviar y recibe una referencia.
+- **Privacidad y términos** en un texto corto desde el pie de página.
 - **Una sola página** para la aplicación, con los botones Atrás y Adelante del navegador funcionando.
 
 ## Diseño responsivo

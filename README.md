@@ -84,6 +84,8 @@ Abrir `Frontend/login.html` con doble clic. Todo funciona igual, pero los usuari
 | Titular (administrador) | `admin@ecocontrol.com` | `admin123` |
 
 ## Código destacado
+La arquitectura, los endpoints y la seguridad están en [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
+
 Los fragmentos de código más importantes, explicados, están en [docs/CODIGO.md](docs/CODIGO.md).
 
 ## Diseño UI/UX
@@ -100,3 +102,11 @@ Las 43 pruebas realizadas, con su resultado, están en [docs/MATRIZ-DE-PRUEBAS.m
 
 ## Autor
 Santiago Villalba
+
+## Cuentas de demostración
+- Cliente: `demo@ecocontrol.com` / `eco123`
+- Administrador: `admin@ecocontrol.com` / `admin123`
+
+## Novedades
+- Barra superior con la razón social (ECOControl S.R.L.) y el local de la empresa (se edita en `EMPRESA` de `Frontend/js/app.js`).
+- Método de pago simulado al solicitar asesoramiento (Mercado Pago, PayPal, tarjeta, transferencia): no se cobra nada ni se piden datos de tarjeta. El monto lo define la modalidad; la transferencia queda pendiente. Si la base ya estaba creada, importar `database/migracion_pagos.sql`.

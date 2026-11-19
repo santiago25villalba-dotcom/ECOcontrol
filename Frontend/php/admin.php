@@ -22,7 +22,7 @@ if ($accion === 'resumen') {
 
     // Solicitudes de asesoramiento con el nombre del cliente
     $solicitudes = $conexion->query(
-        'SELECT a.id, a.fecha, u.nombre, u.email, a.area, a.modalidad, a.telefono, a.mensaje, a.estado
+        'SELECT a.id, a.fecha, u.nombre, u.email, a.area, a.modalidad, a.telefono, a.mensaje, a.metodo_pago, a.monto, a.pago_estado, a.estado
          FROM asesorias a INNER JOIN usuarios u ON u.id = a.usuario_id
          ORDER BY a.fecha DESC'
     )->fetch_all(MYSQLI_ASSOC);

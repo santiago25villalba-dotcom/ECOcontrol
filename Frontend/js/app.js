@@ -10,6 +10,15 @@
 // usamos un usuario vacío para que el código no falle mientras tanto.
 const usuario = obtenerSesion() || { nombre: '', email: '', modo: 'local' };
 const modoServidor = usuario.modo === 'servidor';
+
+// Datos de la empresa (si cambia la dirección del local, se cambia solo acá)
+const EMPRESA = { razonSocial: 'ECOControl S.R.L.', local: 'Buenos Aires, Argentina' };
+document.querySelectorAll('.local-empresa').forEach(function (e) { e.textContent = EMPRESA.local; });
+
+// Pago simulado: no se cobra nada ni se piden datos de tarjeta
+const PRECIOS_ASESORIA = { 'Videollamada': 25000, 'Visita presencial': 45000, 'Por correo': 12000 };
+const METODOS_PAGO = ['Mercado Pago', 'PayPal', 'Tarjeta de crédito/débito', 'Transferencia bancaria'];
+function pesos(n) { return '$ ' + Number(n).toLocaleString('es-AR'); }
 const esAdmin = usuario.rol === 'admin'; // el Titular de la consultora
 
 /* =========================================================
@@ -474,8 +483,29 @@ function formatearFecha(iso) {
          fecha.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
 }
 
+// Solicitudes de asesoramiento del usuario, con su pago
+async function leerAsesorias() {
+  if (modoServidor) {
+    const r = await llamarPHP('php/mis_asesorias.php', {});
+    return r && r.ok ? r.asesorias : [];
+  }
+  return leerLocal('asesorias').filter(function (s) { return s.email === usuario.email; });
+}
+
+async function cargarAsesorias() {
+  const cuerpo = document.getElementById('panelAsesorias');
+  const lista = (await leerAsesorias()).slice().sort(function (a, b) { return new Date(b.fecha) - new Date(a.fecha); });
+  cuerpo.innerHTML = '';
+  if (lista.length === 0) return filaVacia(cuerpo, 6, 'Todavía no solicitaste asesoramiento.');
+  lista.forEach(function (s) {
+    agregarFila(cuerpo, [formatearFecha(s.fecha), s.area, s.modalidad,
+      s.metodo_pago ? (s.metodo_pago + ' · ' + pesos(s.monto) + ' · ' + s.pago_estado) : '–', s.referencia || '–', s.estado]);
+  });
+}
+
 async function cargarPanel() {
   document.getElementById('panelBienvenida').textContent = 'Hola, ' + usuario.nombre;
+  cargarAsesorias();
 
   const lista = await leerDiagnosticos();
   const hayDatos = lista.length > 0;
@@ -527,6 +557,10 @@ function abrirAsesoramiento() {
     '      <select id="asesoriaModalidad"><option>Videollamada</option><option>Visita presencial</option><option>Por correo</option></select></div>' +
     '    <div class="campo"><label for="asesoriaTelefono">Teléfono (opcional)</label><input type="tel" id="asesoriaTelefono" placeholder="11 2345-6789"></div>' +
     '    <div class="campo"><label for="asesoriaMensaje">Contanos qué necesitás</label><textarea id="asesoriaMensaje" rows="3"></textarea></div>' +
+    '    <fieldset class="pago-caja"><legend>Método de pago</legend>' +
+    METODOS_PAGO.map(function (m, i) { return '<label class="pago-opcion"><input type="radio" name="metodoPago" value="' + m + '"' + (i === 0 ? ' checked' : '') + '> ' + m + '</label>'; }).join('') +
+    '      <div class="pago-total"><span>Total a pagar</span><span id="pagoMonto"></span></div>' +
+    '      <p class="pago-nota">Pago simulado para la demostración: no se realiza ningún cobro real.</p></fieldset>' +
     '    <p class="mensaje" id="asesoriaEstado" role="alert"></p>' +
     '    <div class="botones-fila"><button type="button" class="boton boton-borde" id="asesoriaCancelar">Cancelar</button><button type="submit" class="boton">Enviar solicitud</button></div>' +
     '  </form>' +
@@ -534,6 +568,9 @@ function abrirAsesoramiento() {
   document.body.appendChild(fondo);
 
   function cerrar() { fondo.remove(); }
+  function actualizarMonto() { document.getElementById('pagoMonto').textContent = pesos(PRECIOS_ASESORIA[document.getElementById('asesoriaModalidad').value]); }
+  document.getElementById('asesoriaModalidad').addEventListener('change', actualizarMonto);
+  actualizarMonto();
   fondo.addEventListener('click', function (e) { if (e.target === fondo) cerrar(); });
   document.getElementById('asesoriaCancelar').addEventListener('click', cerrar);
   document.addEventListener('keydown', function escape(e) {
@@ -549,6 +586,11 @@ function abrirAsesoramiento() {
       telefono: document.getElementById('asesoriaTelefono').value.trim(),
       mensaje: document.getElementById('asesoriaMensaje').value.trim()
     };
+    // Pago simulado: el monto lo define la modalidad; la transferencia queda pendiente de acreditación
+    datos.metodo_pago = document.querySelector('input[name="metodoPago"]:checked').value;
+    datos.monto = PRECIOS_ASESORIA[datos.modalidad];
+    datos.pago_estado = datos.metodo_pago === 'Transferencia bancaria' ? 'Pendiente' : 'Aprobado';
+    datos.referencia = 'ECO-' + Math.random().toString(36).slice(2, 10).toUpperCase();
     if (datos.mensaje.length < 5) {
       return mostrarMensaje(estado, 'Contanos brevemente qué necesitás.', 'error');
     }
@@ -565,8 +607,9 @@ function abrirAsesoramiento() {
     }
 
     if (ok) {
-      mostrarMensaje(estado, '¡Solicitud enviada! Te vamos a contactar a ' + usuario.email + '.', 'ok');
-      setTimeout(cerrar, 2000);
+      mostrarMensaje(estado, '¡Solicitud enviada! Pago ' + datos.pago_estado.toLowerCase() + ' (' + datos.metodo_pago + ', ' + pesos(datos.monto) + '). Referencia ' + datos.referencia + '. Te vamos a contactar a ' + usuario.email + '.', 'ok');
+      cargarAsesorias();
+      setTimeout(cerrar, 5000);
     } else {
       mostrarMensaje(estado, 'No se pudo enviar la solicitud. Intentá de nuevo.', 'error');
     }
@@ -663,7 +706,7 @@ async function cargarAdmin() {
   // Solicitudes de asesoramiento, con un selector para cambiar el estado
   const solicitudes = document.getElementById('adminSolicitudes');
   solicitudes.innerHTML = '';
-  if (datos.solicitudes.length === 0) filaVacia(solicitudes, 6, 'Todavía no hay solicitudes.');
+  if (datos.solicitudes.length === 0) filaVacia(solicitudes, 7, 'Todavía no hay solicitudes.');
   datos.solicitudes.forEach(function (s) {
     const selector = document.createElement('select');
     selector.setAttribute('aria-label', 'Estado de la solicitud');
@@ -674,7 +717,7 @@ async function cargarAdmin() {
       selector.appendChild(opcion);
     });
     selector.addEventListener('change', function () { cambiarEstado(s.id, selector.value); });
-    agregarFila(solicitudes, [formatearFecha(s.fecha), (s.nombre || '') + ' (' + s.email + ')', s.area, s.modalidad, s.mensaje, selector]);
+    agregarFila(solicitudes, [formatearFecha(s.fecha), (s.nombre || '') + ' (' + s.email + ')', s.area, s.modalidad, s.mensaje, s.metodo_pago ? (s.metodo_pago + ' · ' + pesos(s.monto) + ' · ' + s.pago_estado) : '–', selector]);
   });
 
   const clientes = document.getElementById('adminTablaClientes');
@@ -770,3 +813,23 @@ formContacto.addEventListener('submit', async function (evento) {
    6. INICIO: mostramos la pantalla que indica la dirección (#)
    ========================================================= */
 mostrarPantalla(window.location.hash.slice(1) || 'inicio');
+
+/* ---------- Privacidad y términos (texto corto) ---------- */
+document.getElementById('verPrivacidad').addEventListener('click', function (evento) {
+  evento.preventDefault();
+  const fondo = document.createElement('div');
+  fondo.className = 'modal-fondo';
+  fondo.innerHTML =
+    '<div class="tarjeta" role="dialog" aria-modal="true" aria-labelledby="tituloPriv">' +
+    '<h3 id="tituloPriv">Privacidad y términos</h3>' +
+    '<p><strong>Qué datos pedimos.</strong> Nombre, correo y las respuestas de tus diagnósticos, solo para calcular tu Índice Eco y darte recomendaciones.</p>' +
+    '<p><strong>Para qué los usamos.</strong> Únicamente para brindarte el servicio de ' + EMPRESA.razonSocial + ', y no vendemos ni compartimos tus datos con terceros.</p>' +
+    '<p><strong>Tu contraseña.</strong> Se guarda cifrada, nunca en texto plano.</p>' +
+    '<p><strong>Pagos.</strong> Son simulados en esta demostración: no se realiza ningún cobro ni se piden datos de tarjeta.</p>' +
+    '<p><strong>Tus derechos.</strong> Podés pedir que corrijamos o borremos tus datos desde la sección Contacto.</p>' +
+    '<div class="botones-fila"><button type="button" class="boton" id="privCerrar">Entendido</button></div></div>';
+  document.body.appendChild(fondo);
+  function cerrar() { fondo.remove(); }
+  fondo.addEventListener('click', function (e) { if (e.target === fondo) cerrar(); });
+  document.getElementById('privCerrar').addEventListener('click', cerrar);
+});

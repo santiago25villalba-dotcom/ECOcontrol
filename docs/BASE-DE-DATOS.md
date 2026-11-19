@@ -46,7 +46,7 @@ Cada diagnóstico ambiental realizado y su Índice Eco.
 
 ### Tabla `asesorias`
 
-Solicitudes de asesoramiento de los clientes.
+Solicitudes de asesoramiento de los clientes, con su pago simulado (no se cobra nada ni se guardan datos de tarjeta).
 
 | Campo | Tipo | Clave | Descripción |
 |---|---|---|---|
@@ -58,6 +58,10 @@ Solicitudes de asesoramiento de los clientes.
 | `mensaje` | TEXT | – | Qué necesita el cliente. |
 | `estado` | ENUM | – | 'Pendiente', 'En curso' o 'Finalizada'. Lo cambia el Titular. |
 | `fecha` | DATETIME | – | Fecha y hora de la solicitud (automática). |
+| `metodo_pago` | VARCHAR(40) | – | Método elegido (simulado): Mercado Pago, PayPal, tarjeta o transferencia. |
+| `monto` | INT | – | Importe en pesos; lo define la modalidad, no el navegador. |
+| `pago_estado` | ENUM | – | 'Pendiente' (transferencia) o 'Aprobado' (resto de los métodos). |
+| `referencia` | VARCHAR(20) | – | Código del comprobante, con el formato ECO-XXXXXXXX. |
 
 ### Tabla `recuperaciones`
 

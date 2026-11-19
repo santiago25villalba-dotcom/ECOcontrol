@@ -51,6 +51,10 @@ CREATE TABLE IF NOT EXISTS asesorias (
   modalidad VARCHAR(50) NOT NULL,
   telefono VARCHAR(30) NULL,
   mensaje TEXT NOT NULL,
+  metodo_pago VARCHAR(40) NULL,
+  monto INT NULL,
+  pago_estado ENUM('Pendiente', 'Aprobado') NULL,
+  referencia VARCHAR(20) NULL,
   estado ENUM('Pendiente', 'En curso', 'Finalizada') NOT NULL DEFAULT 'Pendiente',
   fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_asesoria_usuario FOREIGN KEY (usuario_id)

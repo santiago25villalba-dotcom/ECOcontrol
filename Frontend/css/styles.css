@@ -436,7 +436,7 @@ td.vacia { text-align: center; color: var(--gris-texto); }
   z-index: 50;
   padding: 16px;
 }
-.modal-fondo .tarjeta { width: min(520px, 100%); }
+.modal-fondo .tarjeta { width: min(520px, 100%); max-height: calc(100vh - 32px); overflow-y: auto; }
 
 /* ---------- Pie ---------- */
 .pie {
@@ -481,3 +481,17 @@ td.vacia { text-align: center; color: var(--gris-texto); }
   .tarjeta { padding: 20px; }
   .cta { padding: 24px; }
 }
+
+/* ---------- Barra de la sociedad (S.R.L.) y local ---------- */
+.barra-sociedad { background: var(--verde-oscuro); color: #CFE5D9; font-size: 0.85rem; }
+.barra-sociedad .contenedor { display: flex; gap: 8px 18px; flex-wrap: wrap; align-items: center; padding-top: 6px; padding-bottom: 6px; }
+.barra-sociedad strong { color: #fff; }
+
+/* ---------- Método de pago (simulado) ---------- */
+.pago-caja { border: 1px solid var(--borde); border-radius: 10px; padding: 12px 14px; margin: 14px 0 4px; }
+.pago-caja legend { font-weight: 600; padding: 0 6px; }
+.pago-opcion { display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer; }
+.pago-opcion input { width: auto; margin: 0; }
+.pago-total { display: flex; justify-content: space-between; font-weight: 700; margin-top: 8px; }
+.pago-nota { font-size: 0.85rem; color: #5D6B63; margin: 6px 0 0; }
+.pie .enlace-pie { color: #CFE5D9; text-decoration: underline; }
